@@ -160,7 +160,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Direccion.cs" />
+    <Compile Include="Models\Experiencia.cs" />
+    <Compile Include="Models\Formacion.cs" />
     <Compile Include="Models\Persona.cs" />
+    <Compile Include="Models\Proyectos.cs" />
+    <Compile Include="Models\Redes.cs" />
+    <Compile Include="Models\Skills.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
