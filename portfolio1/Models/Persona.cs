@@ -12,16 +12,21 @@ namespace portfolio1.Models
         private string _nombre;
         private string _apellido;
         private int _edad;
-        private Direccion _direccion;
-        private List<Skills>  _listaSkills;
-        private List<Formacion> _listaFormacion;
-        private List<Experiencia> _listaExp;
-        private List<Proyectos> _listaProyectos;
+        private string _provincia;
+        private string _localidad;
+        private string _calle;
+        private int _numero;
 
-        public List<Proyectos> ListaProyectos
+        public Persona(int dni, string nombre, string apellido, int edad, string provincia, string localidad, string calle, int numero)
         {
-            get { return _listaProyectos; }
-            set { _listaProyectos = value; }
+            _dni = dni;
+            _nombre = nombre;
+            _apellido = apellido;
+            _edad = edad;
+            _provincia = provincia;
+            _localidad = localidad;
+            _calle = calle;
+            _numero = numero;
         }
 
         public string Apellido
@@ -49,29 +54,31 @@ namespace portfolio1.Models
             set { _edad = value; }
         }
 
-        public Direccion Direccion
+        public int Numero
         {
-            get { return _direccion; }
-            set { _direccion = value; }
+            get { return _numero; }
+            set { _numero = value; }
         }
 
-        public List<Skills> ListaSkills
+
+        public string Calle
         {
-            get { return _listaSkills; }
-            set { _listaSkills = value; }
+            get { return _calle; }
+            set { _calle = value; }
         }
 
-        public List<Formacion> ListaFormacion
+
+        public string Localidad
         {
-            get { return _listaFormacion; }
-            set { _listaFormacion = value; }
+            get { return _localidad; }
+            set { _localidad = value; }
         }
 
-        public List<Experiencia> ListaExp
-        {
-            get { return _listaExp; }
-            set { _listaExp = value; }
-        }
 
+        public string Provincia
+        {
+            get { return _provincia; }
+            set { _provincia = value; }
+        }
     }
 }
