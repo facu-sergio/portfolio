@@ -16,8 +16,9 @@ namespace portfolio1.Models
         private string _localidad;
         private string _calle;
         private int _numero;
+        private int _telefono;
 
-        public Persona(int dni, string nombre, string apellido, int edad, string provincia, string localidad, string calle, int numero)
+        public Persona(int dni, string nombre, string apellido, int edad, string provincia, string localidad, string calle, int numero, int telefono)
         {
             _dni = dni;
             _nombre = nombre;
@@ -27,6 +28,7 @@ namespace portfolio1.Models
             _localidad = localidad;
             _calle = calle;
             _numero = numero;
+            _telefono = telefono;
         }
 
         public string Apellido
@@ -74,11 +76,17 @@ namespace portfolio1.Models
             set { _localidad = value; }
         }
 
-
         public string Provincia
         {
             get { return _provincia; }
             set { _provincia = value; }
         }
+
+        public int Telefono
+        {
+            get { return _telefono; }
+            set { _telefono = value; }
+        }
+
     }
 }

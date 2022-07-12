@@ -13,8 +13,8 @@ namespace portfolio1.Controllers
         // GET: api/Persona
         public IEnumerable<Persona> Get()
         {
-            GestorPersona gPersiona = new GestorPersona();
-            return gPersiona.getPersona();
+            GestorPersona gPersona = new GestorPersona();
+            return gPersona.getPersona();
         }
 
         // GET: api/Persona/5
@@ -24,18 +24,28 @@ namespace portfolio1.Controllers
         }
 
         // POST: api/Persona
-        public void Post([FromBody]string value)
+        public bool Post([FromBody]Persona persona)
         {
+            GestorPersona gPersona = new GestorPersona();
+            bool res =  gPersona.addPersona(persona);
+            return res;
         }
 
         // PUT: api/Persona/5
-        public void Put(int id, [FromBody]string value)
+        public bool Put(int id, [FromBody]Persona persona)
         {
+            GestorPersona gPersona = new GestorPersona();
+            bool res = gPersona.updatePersona(id, persona);
+            return res;
+
         }
 
         // DELETE: api/Persona/5
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            GestorPersona gPersona = new GestorPersona();
+            bool res = gPersona.deletePersona(id);
+            return res;
         }
     }
 }
