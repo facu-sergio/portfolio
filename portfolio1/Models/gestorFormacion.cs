@@ -8,59 +8,50 @@ using System.Web;
 
 namespace portfolio1.Models
 {
-    public class GestorPersona
+    public class gestorFormacion
     {
-        public List<Persona> getPersona()
+        public List<Formacion> getFormacion()
         {
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
-            List<Persona> lista  = new List<Persona>();
+            List<Formacion> lista = new List<Formacion>();
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Persona_all";
+                cmd.CommandText = "Formacion_all";
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
 
-                while(dr.Read())
+                while (dr.Read())
                 {
-                    int dni = dr.GetInt32(1);
-                    string nombre = dr.GetString(2);
-                    string apellido = dr.GetString(3);
-                    int edad = dr.GetInt32(4);
-                    string provincia = dr.GetString(5);
-                    string localidad = dr.GetString(6);
-                    string calle = dr.GetString(7);
-                    int numero = dr.GetInt32(8);
-                    int telefono = dr.GetInt32(9);
-                    Persona persona = new Persona(dni,nombre,apellido,edad,provincia,localidad,calle,numero,telefono);
-                    lista.Add(persona);
+                    string titulo = dr.GetString(1);
+                    int año = dr.GetInt32(2);
+                    string institucion = dr.GetString(3);
+                    string desc = dr.GetString(4);
+
+                    Formacion formacion = new Formacion(titulo, año, institucion, desc);
+                    lista.Add(formacion);
                 }
-                dr.Close();
                 conn.Close();
             }
             return lista;
         }
-        
-        public bool addPersona(Persona persona)
+
+        public bool addFormacion(Formacion formacion)
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Persona_Add";
+                cmd.CommandText = "Formacion_add";
                 cmd.CommandType = CommandType.StoredProcedure;
+                
 
-                cmd.Parameters.AddWithValue("@dni", persona.Dni);
-                cmd.Parameters.AddWithValue("@nombre", persona.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", persona.Apellido);
-                cmd.Parameters.AddWithValue("@edad", persona.Edad);
-                cmd.Parameters.AddWithValue("@provincia", persona.Provincia);
-                cmd.Parameters.AddWithValue("@localidad", persona.Localidad);
-                cmd.Parameters.AddWithValue("@calle", persona.Calle);
-                cmd.Parameters.AddWithValue("@numero", persona.Numero);
-                cmd.Parameters.AddWithValue("@telefono", persona.Telefono);
+                cmd.Parameters.AddWithValue("@titulo", formacion.Titulo);
+                cmd.Parameters.AddWithValue("@año", formacion.Año);
+                cmd.Parameters.AddWithValue("@institucion", formacion.Institucion);
+                cmd.Parameters.AddWithValue("@descripcion", formacion.Desc);
 
                 try
                 {
@@ -70,8 +61,7 @@ namespace portfolio1.Models
                 }
                 catch (Exception ex)
                 {
-
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex);
                     res = false;
                     throw;
                 }
@@ -80,31 +70,24 @@ namespace portfolio1.Models
                     cmd.Parameters.Clear();
                     conn.Close();
                 }
-                return res;
             }
-
+            return res;
         }
-
-        public bool updatePersona(int id,Persona persona)
+        public bool updateFormacion(int id,Formacion formacion)
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Persona_update";
+                cmd.CommandText = "Formacion_update";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@dni", persona.Dni);
-                cmd.Parameters.AddWithValue("@nombre", persona.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", persona.Apellido);
-                cmd.Parameters.AddWithValue("@edad", persona.Edad);
-                cmd.Parameters.AddWithValue("@provincia", persona.Provincia);
-                cmd.Parameters.AddWithValue("@localidad", persona.Localidad);
-                cmd.Parameters.AddWithValue("@calle", persona.Calle);
-                cmd.Parameters.AddWithValue("@numero", persona.Numero);
-                cmd.Parameters.AddWithValue("@telefono", persona.Telefono);
+                cmd.Parameters.AddWithValue("@titulo", formacion.Titulo);
+                cmd.Parameters.AddWithValue("@año", formacion.Año);
+                cmd.Parameters.AddWithValue("@institucion", formacion.Institucion);
+                cmd.Parameters.AddWithValue("@descripcion", formacion.Desc);
 
                 try
                 {
@@ -114,8 +97,7 @@ namespace portfolio1.Models
                 }
                 catch (Exception ex)
                 {
-
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex);
                     res = false;
                     throw;
                 }
@@ -124,23 +106,21 @@ namespace portfolio1.Models
                     cmd.Parameters.Clear();
                     conn.Close();
                 }
-                return res;
             }
-
+            return res;
         }
 
-        public bool deletePersona(int id)
+        public bool deleteFormacion(int id)
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Persona_delete";
+                cmd.CommandText = "Formacion_delete";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@id", id);
-
                 try
                 {
                     conn.Open();
@@ -149,8 +129,7 @@ namespace portfolio1.Models
                 }
                 catch (Exception ex)
                 {
-
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex);
                     res = false;
                     throw;
                 }
@@ -159,9 +138,8 @@ namespace portfolio1.Models
                     cmd.Parameters.Clear();
                     conn.Close();
                 }
-                return res;
             }
-
+            return res;
         }
     }
 }

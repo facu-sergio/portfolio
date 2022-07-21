@@ -8,59 +8,45 @@ using System.Web;
 
 namespace portfolio1.Models
 {
-    public class GestorPersona
+    public class GestorSkills
     {
-        public List<Persona> getPersona()
+        public List<Skills> getSkills()
         {
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
-            List<Persona> lista  = new List<Persona>();
+            List<Skills> lista = new List<Skills>();
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Persona_all";
+                cmd.CommandText = "Skill_all";
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
 
-                while(dr.Read())
+                while (dr.Read())
                 {
-                    int dni = dr.GetInt32(1);
-                    string nombre = dr.GetString(2);
-                    string apellido = dr.GetString(3);
-                    int edad = dr.GetInt32(4);
-                    string provincia = dr.GetString(5);
-                    string localidad = dr.GetString(6);
-                    string calle = dr.GetString(7);
-                    int numero = dr.GetInt32(8);
-                    int telefono = dr.GetInt32(9);
-                    Persona persona = new Persona(dni,nombre,apellido,edad,provincia,localidad,calle,numero,telefono);
-                    lista.Add(persona);
+                    string skillname = dr.GetString(1);
+                    int dominio = dr.GetInt32(2);
+
+                    Skills skill = new Skills(skillname,dominio);
+                    lista.Add(skill);
                 }
                 dr.Close();
                 conn.Close();
             }
             return lista;
         }
-        
-        public bool addPersona(Persona persona)
+        public bool addSkill(Skills skill)
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Persona_Add";
+                cmd.CommandText = "Skill_add";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@dni", persona.Dni);
-                cmd.Parameters.AddWithValue("@nombre", persona.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", persona.Apellido);
-                cmd.Parameters.AddWithValue("@edad", persona.Edad);
-                cmd.Parameters.AddWithValue("@provincia", persona.Provincia);
-                cmd.Parameters.AddWithValue("@localidad", persona.Localidad);
-                cmd.Parameters.AddWithValue("@calle", persona.Calle);
-                cmd.Parameters.AddWithValue("@numero", persona.Numero);
-                cmd.Parameters.AddWithValue("@telefono", persona.Telefono);
+                cmd.Parameters.AddWithValue("@nombre", skill.Skillname);
+                cmd.Parameters.AddWithValue("@dominio", skill.Dominio);
 
                 try
                 {
@@ -82,29 +68,21 @@ namespace portfolio1.Models
                 }
                 return res;
             }
-
         }
 
-        public bool updatePersona(int id,Persona persona)
+        public bool updateSkill(int id, Skills skill)
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Persona_update";
+                cmd.CommandText = "Skill_update";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@dni", persona.Dni);
-                cmd.Parameters.AddWithValue("@nombre", persona.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", persona.Apellido);
-                cmd.Parameters.AddWithValue("@edad", persona.Edad);
-                cmd.Parameters.AddWithValue("@provincia", persona.Provincia);
-                cmd.Parameters.AddWithValue("@localidad", persona.Localidad);
-                cmd.Parameters.AddWithValue("@calle", persona.Calle);
-                cmd.Parameters.AddWithValue("@numero", persona.Numero);
-                cmd.Parameters.AddWithValue("@telefono", persona.Telefono);
+                cmd.Parameters.AddWithValue("@nombre", skill.Skillname);
+                cmd.Parameters.AddWithValue("@dominio", skill.Dominio);
 
                 try
                 {
@@ -126,17 +104,15 @@ namespace portfolio1.Models
                 }
                 return res;
             }
-
         }
-
-        public bool deletePersona(int id)
+        public bool deleteSkill(int id)
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Persona_delete";
+                cmd.CommandText = "Skills_delete";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@id", id);
@@ -161,7 +137,6 @@ namespace portfolio1.Models
                 }
                 return res;
             }
-
         }
     }
 }

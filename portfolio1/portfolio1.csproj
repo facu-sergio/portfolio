@@ -155,15 +155,25 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ExperienciaController.cs" />
+    <Compile Include="Controllers\FormacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
+    <Compile Include="Controllers\ProyectosController.cs" />
+    <Compile Include="Controllers\RedesController.cs" />
+    <Compile Include="Controllers\SkillsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Experiencia.cs" />
     <Compile Include="Models\Formacion.cs" />
+    <Compile Include="Models\GestorExperiencia.cs" />
+    <Compile Include="Models\gestorFormacion.cs" />
     <Compile Include="Models\GestorPersona.cs" />
+    <Compile Include="Models\GestorProyectos.cs" />
+    <Compile Include="Models\GestorRedes.cs" />
+    <Compile Include="Models\GestorSkills.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Proyectos.cs" />
     <Compile Include="Models\Redes.cs" />
