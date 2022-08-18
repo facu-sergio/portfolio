@@ -1,11 +1,21 @@
 <div class="row mt-4 ">
-    <div class="col-md-1"></div>
-    <div class="col-md-11"><p class="h1 ">Experiencia Laboral</p></div>
-</div>
-<div class="row mt-2">
-    <div class="col-md-1"></div>
-    <div class="col-md-11">
-        <div class="col-md-11"><p class="h3">Año: 2018-actual</p></div>
-        <p class="h3">Armado  reparacion y soporte de pc de forma particular.</p>
+    <h1>Experiencia Laboral</h1>
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-dark" routerLink="/nuevaexp" *ngIf="isLogged" >
+            Nueva Experiencia
+        </button>
     </div>
+     <div class="col-lg-10 offset-lg-1 ">
+        <table class="table">
+            <tbody class="text-white">
+                <tr *ngFor="let Experiencia of experiencia">
+                    <td>{{Experiencia.Puesto}}</td>
+                    <td>{{Experiencia.Periodo}}</td>
+                    <td>{{Experiencia.Desc}}</td>
+                    <td *ngIf="isLogged" ><button class="btn btn-success" routerLink="/editexp/{{Experiencia.Id}}">Editar</button> </td>
+                    <td *ngIf="isLogged"> <button class="btn btn-danger" (click)="eliminarExp(Experiencia.Id)">Borrar</button> </td>
+                </tr>
+            </tbody>
+        </table>
+     </div>
 </div>

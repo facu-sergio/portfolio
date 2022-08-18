@@ -10,11 +10,15 @@ namespace portfolio1.Models
         private string _nombre;
         private string _link;
         private string _descripcion;
-        public Proyectos(string nombre, string link, string descripcion)
+        private string _foto;
+
+        
+        public Proyectos(string nombre, string link, string descripcion,string foto)
         {
             _nombre = nombre;
             _link = link;
             _descripcion = descripcion;
+            _foto = foto;
         }
 
         public string Descripcion
@@ -34,6 +38,11 @@ namespace portfolio1.Models
         {
             get { return _nombre; }
             set { _nombre = value; }
+        }
+        public string Foto
+        {
+            get { return _foto; }
+            set { _foto = value; }
         }
 
 

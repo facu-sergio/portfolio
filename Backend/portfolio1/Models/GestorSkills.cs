@@ -26,8 +26,9 @@ namespace portfolio1.Models
                 {
                     string skillname = dr.GetString(1);
                     int dominio = dr.GetInt32(2);
+                    string foto = dr.GetString(3);
 
-                    Skills skill = new Skills(skillname,dominio);
+                    Skills skill = new Skills(skillname,dominio,foto);
                     lista.Add(skill);
                 }
                 dr.Close();
@@ -47,6 +48,7 @@ namespace portfolio1.Models
 
                 cmd.Parameters.AddWithValue("@nombre", skill.Skillname);
                 cmd.Parameters.AddWithValue("@dominio", skill.Dominio);
+                cmd.Parameters.AddWithValue("@foto", skill.Foto);
 
                 try
                 {
@@ -83,6 +85,8 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@nombre", skill.Skillname);
                 cmd.Parameters.AddWithValue("@dominio", skill.Dominio);
+                cmd.Parameters.AddWithValue("@foto", skill.Foto);
+
 
                 try
                 {

@@ -28,7 +28,8 @@ namespace portfolio1.Models
                     string nombre = dr.GetString(1);
                     string link = dr.GetString(2);
                     string descripcion = dr.GetString(3);
-                    Proyectos proyecto = new Proyectos(nombre,link,descripcion);
+                    string foto = dr.GetString(4);
+                    Proyectos proyecto = new Proyectos(nombre,link,descripcion,foto);
                     lista.Add(proyecto);
                 }
                 dr.Close();
@@ -49,6 +50,7 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@nombre", proyecto.Nombre);
                 cmd.Parameters.AddWithValue("@link", proyecto.Link);
                 cmd.Parameters.AddWithValue("@descripcion", proyecto.Descripcion);
+                cmd.Parameters.AddWithValue("@foto", proyecto.Foto);
                 try
                 {
                     conn.Open();
@@ -85,6 +87,7 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@nombre", proyecto.Nombre);
                 cmd.Parameters.AddWithValue("@link", proyecto.Link);
                 cmd.Parameters.AddWithValue("@descripcion", proyecto.Descripcion);
+                cmd.Parameters.AddWithValue("@foto", proyecto.Foto);
                 try
                 {
                     conn.Open();

@@ -5,22 +5,25 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace portfolio1.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
     public class ExperienciaController : ApiController
     {
         // GET: api/Experiencia
         public IEnumerable<Experiencia> Get()
         {
             GestorExperiencia gExperiencia = new GestorExperiencia();
-            return gExperiencia.getExperiencia();
+            return gExperiencia.getExperiencias();
         }
 
         // GET: api/Experiencia/5
-        public string Get(int id)
+        public Experiencia Get(int id)
         {
-            return "value";
+            GestorExperiencia gExperiencia = new GestorExperiencia();
+            return gExperiencia.getExperiencia(id);
         }
 
         // POST: api/Experiencia

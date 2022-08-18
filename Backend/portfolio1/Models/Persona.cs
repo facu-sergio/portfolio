@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Text.Json.Serialization;
 
 namespace portfolio1.Models
 {
@@ -17,8 +17,15 @@ namespace portfolio1.Models
         private string _calle;
         private int _numero;
         private int _telefono;
+        private string _descripcion;
+        private string _foto;
 
-        public Persona(int dni, string nombre, string apellido, int edad, string provincia, string localidad, string calle, int numero, int telefono)
+        public Persona()
+        {
+
+        }
+
+        public Persona(int dni, string nombre, string apellido, int edad, string provincia, string localidad, string calle, int numero, int telefono,string descripcion, string foto)
         {
             _dni = dni;
             _nombre = nombre;
@@ -29,6 +36,21 @@ namespace portfolio1.Models
             _calle = calle;
             _numero = numero;
             _telefono = telefono;
+            _descripcion = descripcion;
+            _foto = foto;
+        }
+
+        public int Dni
+        {
+            get { return _dni; }
+            set { _dni = value; }
+        }
+
+        public string Nombre
+        {
+
+            get { return _nombre; }
+            set { _nombre = value; }
         }
 
         public string Apellido
@@ -37,29 +59,23 @@ namespace portfolio1.Models
             set { _apellido = value; }
         }
 
-        public string Nombre
-        {
-            get { return _nombre; }
-            set { _nombre = value; }
-        }
-
-
-        public int Dni
-        {
-            get { return _dni; }
-            set { _dni = value; }
-        }
-
+           
         public int Edad
         {
             get { return _edad; }
             set { _edad = value; }
         }
 
-        public int Numero
+        public string Provincia
         {
-            get { return _numero; }
-            set { _numero = value; }
+            get { return _provincia; }
+            set { _provincia = value; }
+        }
+
+        public string Localidad
+        {
+            get { return _localidad; }
+            set { _localidad = value; }
         }
 
 
@@ -70,22 +86,26 @@ namespace portfolio1.Models
         }
 
 
-        public string Localidad
+        public int Numero
         {
-            get { return _localidad; }
-            set { _localidad = value; }
-        }
-
-        public string Provincia
-        {
-            get { return _provincia; }
-            set { _provincia = value; }
+            get { return _numero; }
+            set { _numero = value; }
         }
 
         public int Telefono
         {
             get { return _telefono; }
             set { _telefono = value; }
+        }
+        public string Descripcion
+        {
+            get { return _descripcion; }
+            set { _descripcion = value; }
+        }
+        public string Foto
+        {
+            get { return _foto; }
+            set { _foto = value; }
         }
 
     }

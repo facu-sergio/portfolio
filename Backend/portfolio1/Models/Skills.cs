@@ -9,11 +9,13 @@ namespace portfolio1.Models
     {
         private string _skillname;
         private int _dominio;
+        private string _foto;
 
-        public Skills(string skillname, int dominio)
+        public Skills(string skillname, int dominio,string foto)
         {
             _skillname = skillname;
             _dominio = dominio;
+            _foto = foto;
         }
 
         public int  Dominio
@@ -26,6 +28,12 @@ namespace portfolio1.Models
         {
             get { return _skillname; }
             set { _skillname = value; }
+        }
+
+        public string Foto
+        {
+            get { return _foto; }
+            set { _foto = value; }
         }
 
     }

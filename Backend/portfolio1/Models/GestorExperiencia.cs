@@ -10,7 +10,7 @@ namespace portfolio1.Models
 {
     public class GestorExperiencia
     {
-        public List<Experiencia> getExperiencia()
+        public List<Experiencia> getExperiencias()
         {
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             List<Experiencia> lista = new List<Experiencia>();
@@ -29,13 +29,42 @@ namespace portfolio1.Models
                     string periodo = dr.GetString(2);
                     string descripcion = dr.GetString(3);
 
-                    Experiencia exp = new Experiencia(puesto,periodo,descripcion);
+                    Experiencia exp = new Experiencia(id,puesto,periodo,descripcion);
                     lista.Add(exp);
                 }
                 dr.Close();
                 conn.Close();
             }
             return lista;
+        }
+
+        public Experiencia getExperiencia(int id)
+        {
+            Experiencia experiencia = new Experiencia();
+            string strConn = ConfigurationManager.ConnectionStrings["BDlocal"].ToString();
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "Experiencia_get";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while(dr.Read())
+                {
+                    experiencia.Id = dr.GetInt32(0);
+                    experiencia.Puesto = dr.GetString(1);
+                    experiencia.Periodo = dr.GetString(2);
+                    experiencia.Desc = dr.GetString(3);
+                }
+           
+                dr.Close();
+                conn.Close();
+       
+                return experiencia;
+            }
         }
 
         public bool addExperiencia (Experiencia exp)
@@ -118,6 +147,7 @@ namespace portfolio1.Models
 
         }
 
+        
         public bool deleteExperiencia(int id)
         {
             bool res = false;

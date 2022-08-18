@@ -12,8 +12,8 @@ namespace portfolio1.Models
     {
         public List<Persona> getPersona()
         {
-            string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             List<Persona> lista  = new List<Persona>();
+            string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 conn.Open();
@@ -33,7 +33,9 @@ namespace portfolio1.Models
                     string calle = dr.GetString(7);
                     int numero = dr.GetInt32(8);
                     int telefono = dr.GetInt32(9);
-                    Persona persona = new Persona(dni,nombre,apellido,edad,provincia,localidad,calle,numero,telefono);
+                    string descripcion = dr.GetString(10);
+                    string foto = dr.GetString(11);
+                    Persona persona = new Persona(dni,nombre,apellido,edad,provincia,localidad,calle,numero,telefono,descripcion,foto);
                     lista.Add(persona);
                 }
                 dr.Close();
@@ -61,6 +63,8 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@calle", persona.Calle);
                 cmd.Parameters.AddWithValue("@numero", persona.Numero);
                 cmd.Parameters.AddWithValue("@telefono", persona.Telefono);
+                cmd.Parameters.AddWithValue("@descripcion", persona.Descripcion);
+                cmd.Parameters.AddWithValue("@foto", persona.Foto);
 
                 try
                 {
@@ -105,6 +109,8 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@calle", persona.Calle);
                 cmd.Parameters.AddWithValue("@numero", persona.Numero);
                 cmd.Parameters.AddWithValue("@telefono", persona.Telefono);
+                cmd.Parameters.AddWithValue("@descripcion", persona.Descripcion);
+                cmd.Parameters.AddWithValue("@foto", persona.Foto);
 
                 try
                 {

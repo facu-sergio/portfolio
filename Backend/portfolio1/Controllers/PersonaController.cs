@@ -5,9 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace portfolio1.Controllers
 {
+    
+    [EnableCors(origins: "*", headers:"*", methods:"GET, POST, PUT, DELETE, OPTIONS")]
+    
     public class PersonaController : ApiController
     {
         // GET: api/Persona
@@ -24,6 +28,7 @@ namespace portfolio1.Controllers
         }
 
         // POST: api/Persona
+        [Authorize]
         public bool Post([FromBody]Persona persona)
         {
             GestorPersona gPersona = new GestorPersona();
@@ -41,6 +46,7 @@ namespace portfolio1.Controllers
         }
 
         // DELETE: api/Persona/5
+        [Authorize]
         public bool Delete(int id)
         {
             GestorPersona gPersona = new GestorPersona();

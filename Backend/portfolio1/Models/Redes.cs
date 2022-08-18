@@ -16,17 +16,16 @@ namespace portfolio1.Models
             _link = link;
         }
 
-        public string Link
-        {
-            get { return _link; }
-            set { _link = value; }
-        }
-
-
         public string Nombre
         {
             get { return _nombre; }
             set { _nombre = value; }
+        }
+
+        public string Link
+        {
+            get { return _link; }
+            set { _link = value; }
         }
 
     }

@@ -12,6 +12,19 @@ import { ExperenciaLaboralComponent } from './components/experencia-laboral/expe
 import { HysComponent } from './components/hys/hys.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+
+
+
+import { JwtHelperService, JWT_OPTIONS} from '@auth0/angular-jwt';
+import { LoginComponent } from './components/login/login.component'
+
+import { FormsModule } from '@angular/forms';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { NewExperienciaComponent } from './components/experencia-laboral/new-experiencia.component';
+import { EditExperienciaComponent } from './components/experencia-laboral/edit-experiencia.component';
 
 
 @NgModule({
@@ -24,14 +37,29 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
     EducacionComponent,
     ExperenciaLaboralComponent,
     HysComponent,
-    ProyectosComponent
+    ProyectosComponent,
+    FooterComponent,
+    HomeComponent,
+    LoginComponent,
+    NewExperienciaComponent,
+    EditExperienciaComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({}),
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    //jwt
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    JwtHelperService,
+    //token interceptor
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
