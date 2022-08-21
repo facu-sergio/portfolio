@@ -36,6 +36,36 @@ namespace portfolio1.Models
             }
             return lista;
         }
+
+        public Skills getSkills(int id)
+        {
+            Skills skill = new Skills();
+            string strConn = ConfigurationManager.ConnectionStrings["BDlocal"].ToString();
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "Skill_get";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    skill.Id = dr.GetInt32(0);
+                    skill.Skillname = dr.GetString(1);
+                    skill.Dominio = dr.GetInt32(2);
+                    skill.Foto = dr.GetString(3);
+                }
+
+                dr.Close();
+                conn.Close();
+
+                return skill;
+            }
+        }
+
         public bool addSkill(Skills skill)
         {
             bool res = false;

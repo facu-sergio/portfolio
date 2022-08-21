@@ -5,9 +5,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace portfolio1.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
     public class SkillsController : ApiController
     {
         // GET: api/Skills
@@ -18,9 +20,10 @@ namespace portfolio1.Controllers
         }
 
         // GET: api/Skills/5
-        public string Get(int id)
+        public Skills Get(int id)
         {
-            return "value";
+            GestorSkills gSkill = new GestorSkills();
+            return gSkill.getSkills(id); 
         }
 
         // POST: api/Skills

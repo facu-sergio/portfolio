@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { NewExperienciaComponent } from './components/experencia-laboral/new-experiencia.component';
 import { EditExperienciaComponent } from './components/experencia-laboral/edit-experiencia.component';
+import { NewHysComponent } from './components/hys/new-hys.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { EditExperienciaComponent } from './components/experencia-laboral/edit-e
     LoginComponent,
     NewExperienciaComponent,
     EditExperienciaComponent,
+    NewHysComponent,
     
     
   ],

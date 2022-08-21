@@ -1,12 +1,19 @@
 <div class="row  mt-4">
-    <p class="h1">Hard y Soft Skills</p>
+    <div class="col-md-4">
+        <p class="h1">Hard y Soft Skills</p>
+    </div>
+    <div class="col-md-4">
+        <button type="button" class="btn btn-dark" routerLink="/nuevaskil" *ngIf="isLogged" >
+            Nueva Skill
+        </button>
+    </div>
 </div>
-<div class="row">
-    <div class="col-md-2 offset-md-1">
+<div class="row" >
+    <div class="col-md-2 offset-md-1" *ngFor="let skill of skills">
         <circle-progress
-        [percent]="100"
+        [percent]= "skill.Dominio"
         [radius]="100"
-        [imageSrc]="'../assets/html.png'"
+        [imageSrc]="'../assets/' + skill.Foto"
         [showImage]="true"
         [imageHeight]="75"
         [imageWidth]="75"
@@ -18,37 +25,4 @@
         [animationDuration]="300"
     ></circle-progress>
     </div>
-    <div class="col-md-2">
-        <circle-progress
-        [percent]="100"
-        [radius]="100"
-        [imageSrc]="'../assets/CSS.png'"
-        [showImage]="true"
-        [imageHeight]="75"
-        [imageWidth]="75"
-        [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'#78C000'"
-        [innerStrokeColor]="'#C7E596'"
-        [animation]="true"
-        [animationDuration]="300"
-    ></circle-progress>
-    </div>
-    <div class="col-md-2">
-        <circle-progress
-        [percent]="100"
-        [radius]="100"
-        [imageSrc]="'../assets/js.png'"
-        [showImage]="true"
-        [imageHeight]="75"
-        [imageWidth]="75"
-        [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'#78C000'"
-        [innerStrokeColor]="'#C7E596'"
-        [animation]="true"
-        [animationDuration]="300"
-    ></circle-progress>
-    </div>
-    
 </div>

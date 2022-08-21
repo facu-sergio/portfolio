@@ -7,10 +7,15 @@ namespace portfolio1.Models
 {
     public class Skills
     {
+        private int _id;
         private string _skillname;
         private int _dominio;
         private string _foto;
 
+        public Skills()
+        {
+
+        }
         public Skills(string skillname, int dominio,string foto)
         {
             _skillname = skillname;
@@ -18,16 +23,22 @@ namespace portfolio1.Models
             _foto = foto;
         }
 
-        public int  Dominio
+        public int Id
         {
-            get { return _dominio; }
-            set { _dominio = value; }
+            get { return _id; }
+            set { _id = value; }
         }
 
         public string Skillname
         {
             get { return _skillname; }
             set { _skillname = value; }
+        }
+
+        public int Dominio
+        {
+            get { return _dominio; }
+            set { _dominio = value; }
         }
 
         public string Foto
