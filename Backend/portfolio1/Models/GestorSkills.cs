@@ -24,11 +24,12 @@ namespace portfolio1.Models
 
                 while (dr.Read())
                 {
+                    int  id = dr.GetInt32(0);
                     string skillname = dr.GetString(1);
                     int dominio = dr.GetInt32(2);
                     string foto = dr.GetString(3);
 
-                    Skills skill = new Skills(skillname,dominio,foto);
+                    Skills skill = new Skills(id,skillname,dominio,foto);
                     lista.Add(skill);
                 }
                 dr.Close();

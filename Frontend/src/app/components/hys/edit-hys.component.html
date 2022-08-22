@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row mt-2">
+        <p class="h1"> Editar Skill</p>
+    </div>
+    <div class="row">
+        <div>
+            <form (ngSubmit)="updateSkill()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="puestoE">Nombre</label>
+                    <input type="text" class="form-control" id="puestoE" name="puestoE" [(ngModel)]="skill.Skillname" required>
+                </div>
+                <div class="form-group">
+                    <label for="periodoE">Dominio</label>
+                    <input type="text" class="form-control" id="periodoE" name="periodoE" [(ngModel)]="skill.Dominio" required>
+                </div>
+                <div class="form-group">
+                    <label for="descripcionE">Icono</label>
+                    <input type="file"  class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="skill.Foto" required >
+                </div>
+                <button class="btn btn-primary mt-2">
+                    Agregar skill
+                </button>
+            </form>
+        </div>
+       
+    </div>
+</div>

@@ -16,8 +16,9 @@ namespace portfolio1.Models
         {
 
         }
-        public Skills(string skillname, int dominio,string foto)
+        public Skills(int id, string skillname, int dominio,string foto)
         {
+            _id = id;
             _skillname = skillname;
             _dominio = dominio;
             _foto = foto;

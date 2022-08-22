@@ -1,15 +1,18 @@
 <div class="row  mt-4">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <p class="h1">Hard y Soft Skills</p>
     </div>
-    <div class="col-md-4">
-        <button type="button" class="btn btn-dark" routerLink="/nuevaskil" *ngIf="isLogged" >
-            Nueva Skill
-        </button>
+    <div class="row" >
+        <div class="col-md-2 ">
+            <button type="button" class="btn btn-success" routerLink="/nuevaskil" *ngIf="isLogged"  >
+                Nueva Skill
+            </button>
+        </div>
     </div>
 </div>
 <div class="row" >
-    <div class="col-md-2 offset-md-1" *ngFor="let skill of skills">
+    
+    <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-2 text-center mx-3 " *ngFor="let skill of skills">
         <circle-progress
         [percent]= "skill.Dominio"
         [radius]="100"
@@ -24,5 +27,7 @@
         [animation]="true"
         [animationDuration]="300"
     ></circle-progress>
+    <button class="btn btn-success" id="editar" routerLink="/editskill/{{skill.Id}}" *ngIf="isLogged">Editar</button>
+    <button class="btn btn-danger" id="borrar" (click)="deleteSkill(skill.Id)" *ngIf="isLogged">Borrar</button>
     </div>
 </div>

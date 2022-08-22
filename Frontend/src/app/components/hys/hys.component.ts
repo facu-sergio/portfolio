@@ -29,4 +29,13 @@ export class HysComponent implements OnInit {
   isAuth(){
      return this.authService.isAuth();
   }
+
+  deleteSkill(id:number){
+    this.skillService.deleteSkill(id).subscribe(data =>{
+      alert('Skill eliminada correctamente');
+      window.location.reload();
+    },err=>{
+      alert('Error al borrar skill');
+    })
+  }
 }

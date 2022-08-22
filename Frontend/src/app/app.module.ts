@@ -26,6 +26,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { NewExperienciaComponent } from './components/experencia-laboral/new-experiencia.component';
 import { EditExperienciaComponent } from './components/experencia-laboral/edit-experiencia.component';
 import { NewHysComponent } from './components/hys/new-hys.component';
+import { EditHysComponent } from './components/hys/edit-hys.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { NewHysComponent } from './components/hys/new-hys.component';
     NewExperienciaComponent,
     EditExperienciaComponent,
     NewHysComponent,
+    EditHysComponent,
     
     
   ],
