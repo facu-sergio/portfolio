@@ -14,7 +14,7 @@ export class HysComponent implements OnInit {
   skills: Skills[] = [];
   isLogged:boolean = false;
   constructor(private skillService:SkillsService, private authService:AuthService ) { }
-
+  
   ngOnInit(): void {
     this.getSkills();
     this.isLogged = this.isAuth();

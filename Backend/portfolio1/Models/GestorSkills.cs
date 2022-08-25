@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -28,7 +29,8 @@ namespace portfolio1.Models
                     string skillname = dr.GetString(1);
                     int dominio = dr.GetInt32(2);
                     string foto = dr.GetString(3);
-
+                    byte[] bytes = File.ReadAllBytes(foto);
+                    foto = Convert.ToBase64String(bytes);
                     Skills skill = new Skills(id,skillname,dominio,foto);
                     lista.Add(skill);
                 }
@@ -71,6 +73,7 @@ namespace portfolio1.Models
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            skill.Foto = "C:\\Users\\facu1\\source\\repos\\Portfolio\\Backend\\portfolio1\\uploads\\" + skill.Foto;
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
