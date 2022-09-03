@@ -5,22 +5,26 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace portfolio1.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
     public class ProyectosController : ApiController
     {
         // GET: api/Proyectos
         public IEnumerable<Proyectos> Get()
         {
             GestorProyectos gProyectos = new GestorProyectos();
-            return gProyectos.getProyecto();
+            return gProyectos.getProyectos();
         }
 
         // GET: api/Proyectos/5
-        public string Get(int id)
+        public Proyectos Get(int id)
         {
-            return "value";
+            GestorProyectos gProyectos = new GestorProyectos();
+            return  gProyectos.GetProyecto(id);
+            
         }
 
         // POST: api/Proyectos

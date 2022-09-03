@@ -1,9 +1,9 @@
 <div class="row  mt-4">
     <div class="col-md-3">
-        <p class="h1">Hard y Soft Skills</p>
+        <h1 class="h1">Hard y Soft Skills</h1>
     </div>
     <div class="row" >
-        <div class="col-md-2 ">
+        <div class="col-lg-2 text-start ">
             <button type="button" class="btn btn-success" routerLink="/nuevaskil" *ngIf="isLogged"  >
                 Nueva Skill
             </button>
@@ -16,7 +16,7 @@
         <circle-progress
         [percent]= "skill.Dominio"
         [radius]="100"
-        [imageSrc]="'data:image/png;base64,'+ skill.Foto "
+        [imageSrc]="'data:image/png;base64,'+ skill.Imagen "
         [showImage]="true"
         [imageHeight]="95"
         [imageWidth]="110"

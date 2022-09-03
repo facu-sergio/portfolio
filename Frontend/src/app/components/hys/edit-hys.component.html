@@ -1,27 +1,37 @@
 <div class="container">
-    <div class="row mt-2">
+    <div class="row mt-2 offset-md-4">
         <p class="h1"> Editar Skill</p>
     </div>
     <div class="row">
         <div>
             <form (ngSubmit)="updateSkill()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="puestoE">Nombre</label>
-                    <input type="text" class="form-control" id="puestoE" name="puestoE" [(ngModel)]="skill.Skillname" required>
+                <div class="form-group col-md-5 offset-md-3 mt-3">
+                    <label for="skillname">Nombre</label>
+                    <input type="text" class="form-control" name="skillname" [(ngModel)]="skill.Skillname">
                 </div>
-                <div class="form-group">
-                    <label for="periodoE">Dominio</label>
-                    <input type="text" class="form-control" id="periodoE" name="periodoE" [(ngModel)]="skill.Dominio" required>
+                <div class="form-group col-md-5 offset-md-3 mt-3">
+                    <label for="dominio">Dominio</label>
+                    <input type="text" class="form-control" name="dominio" [(ngModel)]="skill.Dominio">
                 </div>
-                <div class="form-group">
-                    <label for="descripcionE">Icono</label>
-                    <input type="file"  class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="skill.Foto" required >
+                <div class="form-group col-md-5 offset-md-3 mt-3">
+                    <input type="file" (change)="onPhotoSelected($event)">
                 </div>
-                <button class="btn btn-primary mt-2">
-                    Agregar skill
-                </button>
+                <div class="row">
+                    <div class="col-md-5 offset-md-3 mt-3">
+                        <button type="submit" (change)="updateSkill()" class="btn btn-primary mt-2">
+                            Guardar cambios
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-5 offset-md-5 mt-3 ">
+                    <img *ngIf="!photoSelected" [src]="'data:image/jpg;base64,' + skill.Imagen" height="180"
+                        width="180">
+                    <img [src]="photoSelected" *ngIf="photoSelected" height="180" width="180">
+                </div>
             </form>
+
         </div>
-       
+
     </div>
 </div>

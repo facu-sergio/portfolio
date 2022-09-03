@@ -7,6 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 import { EditHysComponent } from './components/hys/edit-hys.component';
 import { NewHysComponent } from './components/hys/new-hys.component';
 import { LoginComponent } from './components/login/login.component';
+import { NewProyectoComponent } from './components/proyectos/new-proyecto.component';
+import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -16,7 +18,7 @@ const routes: Routes = [
   {path:'editexp/:id', component:EditExperienciaComponent, canActivate: [AuthGuard]},
   {path:'nuevaskil', component:NewHysComponent, canActivate: [AuthGuard]},
   {path:'editskill/:id', component:EditHysComponent,  canActivate: [AuthGuard]},
-
+  {path:'nuevoProyecto', component:NewProyectoComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

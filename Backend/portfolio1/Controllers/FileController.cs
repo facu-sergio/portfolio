@@ -14,12 +14,7 @@ namespace portfolio1.Controllers
     public class FileController : ApiController
     {
         // GET: api/File
-        public string Get()
-        {
-            byte[] bytes = File.ReadAllBytes("C:\\Users\\facu1\\source\\repos\\Portfolio\\Backend\\portfolio1\\uploads\\react.png");
-            string image = Convert.ToBase64String(bytes);
-            return image;
-        }
+        
 
         // GET: api/File/5
         public string Get(int id)
@@ -34,10 +29,15 @@ namespace portfolio1.Controllers
             if(file != null && file.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(HttpContext.Current.Server.MapPath("~/uploads"), fileName);
+                var path = Path.Combine(HttpContext.Current.Server.MapPath("/uploads"), fileName);
                 file.SaveAs(path);
+                return "success" + file != null ? "/uploads/" + file.FileName : null;
             }
-            return "success" + file!=null ? "/uploads/" + file.FileName: null;
+            else
+            {
+                return "No se subio ningun archivo nuevo de imagen";
+            }
+            
         }
 
         // PUT: api/File/5

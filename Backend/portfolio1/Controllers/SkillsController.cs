@@ -23,7 +23,7 @@ namespace portfolio1.Controllers
         public Skills Get(int id)
         {
             GestorSkills gSkill = new GestorSkills();
-            return gSkill.getSkills(id); 
+            return gSkill.getSkill(id); 
         }
 
         // POST: api/Skills

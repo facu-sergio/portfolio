@@ -4,11 +4,16 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-md-4">
+        <button class="btn btn-success" routerLink="/nuevoProyecto">Nuevo Proyecto</button>
+    </div>
+</div>
+<div class="row" *ngFor="let proyecto of proyectos">
     <div class="col-lg-5 offset-md-1">
-        <p class="h2">Web Personal</p>
-        <p class="h4">Web Portfolio personal programada usando angular, .net, asp entre otras tecnologias</p>
-    </div>  
+        <p class="h2">{{proyecto.Nombre}}</p>
+        <p class="h4">{{proyecto.Descripcion}}</p>
+    </div>
     <div class="col-lg-4 offset-md-1 mb-3">
-        <img class=" rounded" src="../../../assets/portfolio.png" alt="">
+        <img class="rounded" [src]="'data:image/png;base64,'+ proyecto.Imagen " alt="">
     </div>
 </div>

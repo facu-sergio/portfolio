@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Skills } from 'src/app/models/skills';
+import { FileService } from 'src/app/services/file.service';
 import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
@@ -12,29 +13,24 @@ import { SkillsService } from 'src/app/services/skills.service';
 export class NewHysComponent implements OnInit {
   nombreS: string = "";
   dominioS: number;
-  fotoS: string = "";
-  image:any;
   selectedFile : File = null;
-  constructor(private skillService:SkillsService, private router:Router , private http:HttpClient) { }
+  url:string = ""
+  constructor(private skillService:SkillsService, private fileService:FileService , private router:Router , private http:HttpClient) { }
 
   ngOnInit(): void {
-     this.http.get('https://localhost:44311/api/File').subscribe(data => {
-      this.image = data;
-     })
-    
   }
   onCreate(){
     const filedata= new FormData();
     filedata.append('image', this.selectedFile);
     filedata.append('nombre', this.selectedFile.name);
-    //console.log(filedata.get('nombre'));
+    console.log(filedata.get('nombre'));
     const filename = filedata.get('nombre').toString();
     const skill =  new Skills(this.nombreS,this.dominioS, filename);
-    this.http.post('https://localhost:44311/api/File', filedata).subscribe(res=>{
-      alert(res);
-    },err=>{
-      alert(err);
-    })
+    this.http.post("https://localhost:44311/api/File",filedata).subscribe(res=>{
+
+    });
+    //this.fileService.saveFile(filedata);
+    
     this.skillService.saveSkill(skill).subscribe( data => {
       alert("Skill anañadida");
       this.router.navigate(['home']);
@@ -42,9 +38,17 @@ export class NewHysComponent implements OnInit {
       alert("Falló");
     })
   }
-
-  capturarFile(event:any){
-    this.selectedFile = <File>event.target.files[0];
+  
+  onSelectedFile(e:any){
+    this.selectedFile = <File>e.target.files[0];
+    if (e.target.files){
+      var reader =  new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any)=> {
+        console.log(event.target.result);
+        this.url = event.target.result;
+      }
+    }
     
   }
 }

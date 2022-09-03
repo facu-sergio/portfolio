@@ -27,6 +27,7 @@ import { NewExperienciaComponent } from './components/experencia-laboral/new-exp
 import { EditExperienciaComponent } from './components/experencia-laboral/edit-experiencia.component';
 import { NewHysComponent } from './components/hys/new-hys.component';
 import { EditHysComponent } from './components/hys/edit-hys.component';
+import { NewProyectoComponent } from './components/proyectos/new-proyecto.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { EditHysComponent } from './components/hys/edit-hys.component';
     EditExperienciaComponent,
     NewHysComponent,
     EditHysComponent,
+    NewProyectoComponent,
     
     
   ],

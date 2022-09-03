@@ -29,9 +29,11 @@ namespace portfolio1.Models
                     string skillname = dr.GetString(1);
                     int dominio = dr.GetInt32(2);
                     string foto = dr.GetString(3);
+                    string img = "";
                     byte[] bytes = File.ReadAllBytes(foto);
-                    foto = Convert.ToBase64String(bytes);
-                    Skills skill = new Skills(id,skillname,dominio,foto);
+                    img = Convert.ToBase64String(bytes);
+                    
+                    Skills skill = new Skills(id,skillname,dominio,foto,img);
                     lista.Add(skill);
                 }
                 dr.Close();
@@ -40,7 +42,7 @@ namespace portfolio1.Models
             return lista;
         }
 
-        public Skills getSkills(int id)
+        public Skills getSkill(int id)
         {
             Skills skill = new Skills();
             string strConn = ConfigurationManager.ConnectionStrings["BDlocal"].ToString();
@@ -60,6 +62,8 @@ namespace portfolio1.Models
                     skill.Skillname = dr.GetString(1);
                     skill.Dominio = dr.GetInt32(2);
                     skill.Foto = dr.GetString(3);
+                    byte[] bytes = File.ReadAllBytes(skill.Foto);
+                    skill.Imagen= Convert.ToBase64String(bytes);
                 }
 
                 dr.Close();
@@ -73,6 +77,7 @@ namespace portfolio1.Models
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            //string pathTofile = HttpContext.Current.Server.MapPath()
             skill.Foto = "C:\\Users\\facu1\\source\\repos\\Portfolio\\Backend\\portfolio1\\uploads\\" + skill.Foto;
             using (SqlConnection conn = new SqlConnection(strConn))
             {
@@ -110,6 +115,7 @@ namespace portfolio1.Models
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            skill.Foto = "C:\\Users\\facu1\\source\\repos\\Portfolio\\Backend\\portfolio1\\uploads\\" + skill.Foto;
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
