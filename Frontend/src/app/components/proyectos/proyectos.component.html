@@ -12,7 +12,8 @@
     <div class="col-lg-4 offset-md-1">
         <p class="h2">{{proyecto.Nombre}}</p>
         <p class="h4">Descripcion: {{proyecto.Descripcion}}</p>
-        <p class="h4">Repositorio: {{proyecto.Link}}</p>
+        <a href="{{proyecto.Link}}" class="btn btn-primary" target="_blank">Link repositorio</a>
+   
     </div>
     <div class="col-lg-4 offset-md-1 mb-3">
         <img class="rounded" [src]="'data:image/png;base64,'+ proyecto.Imagen " >
