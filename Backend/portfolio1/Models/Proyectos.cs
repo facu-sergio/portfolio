@@ -18,8 +18,9 @@ namespace portfolio1.Models
         {
 
         }
-        public Proyectos(string nombre, string link, string descripcion,string foto , string imagen)
+        public Proyectos(int id, string nombre, string link, string descripcion,string foto , string imagen)
         {
+            _id = id;
             _nombre = nombre;
             _link = link;
             _descripcion = descripcion;

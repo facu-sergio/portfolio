@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/models/proyecto';
 import { FileService } from 'src/app/services/file.service';
 import { ProyectoService } from 'src/app/services/proyecto.service';
@@ -16,7 +17,7 @@ export class NewProyectoComponent implements OnInit {
   
   selectedFile : File = null;
   url:string = "";
-  constructor(private proyectoService:ProyectoService, private fileService:FileService) { }
+  constructor(private proyectoService:ProyectoService, private fileService:FileService , private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -33,6 +34,7 @@ export class NewProyectoComponent implements OnInit {
     
     this.proyectoService.saveProyecto(proyecto).subscribe(res=>{
       alert('proyecto guardado');
+      this.router.navigate(['home']);
     },err=>{
       alert('fallo');
     })

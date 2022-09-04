@@ -19,7 +19,7 @@ export class EditHysComponent implements OnInit {
   filename:string = "";
   fullpath:string  = "";
   file:File;
- photoSelected: string | ArrayBuffer;
+  photoSelected: string | ArrayBuffer;
   constructor(private skillService: SkillsService, private activatedRoute: ActivatedRoute, private router: Router, private fileService: FileService) { }
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];

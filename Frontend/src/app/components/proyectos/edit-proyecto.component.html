@@ -1,0 +1,35 @@
+<div class="cointainer">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <p class="h1  mt-3">Editar Proyecto</p>
+        </div>
+        
+    </div>
+</div>
+<div class="row">
+    <form action="" (ngSubmit)="updateProject()" novalidate #f="ngForm">
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="puestoE">Nombre</label>
+            <input type="text" class="form-control input-sm" id="nombre" name="nombre" [(ngModel)]="proyecto.Nombre" required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="periodoE">Link</label>
+            <input type="text" class="form-control" id="link" name="link" [(ngModel)]="proyecto.Link" required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="descripcionE">Descripcion</label>
+            <input type="text"  class="form-control" id="descripcion" name="descripcion"  [(ngModel)]="proyecto.Descripcion"   required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="descripcionE">Imagen</label>
+            <input type="file"  class="form-control" id="imagen" name="imagen" (change)="onSelectedFile($event)"  [(ngModel)]="proyecto.Imagen"   required>
+        </div>
+        <div class="col-md-5 offset-md-3 mt-3">
+            <button class="btn btn-success" >Guardar Cambios</button>
+        </div>
+        <div class="col-md-5 offset-md-5 mt-3" >
+            <img *ngIf="!photoSelected" [src]="'data:image/jpg;base64,' + proyecto.Imagen"  height="200">
+            <img *ngIf="photoSelected" [src]="photoSelected"  height="200">
+        </div>
+    </form>
+</div>

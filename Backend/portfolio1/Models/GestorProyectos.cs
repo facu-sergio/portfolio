@@ -26,13 +26,14 @@ namespace portfolio1.Models
 
                 while (dr.Read())
                 {
+                    int id = dr.GetInt32(0);
                     string nombre = dr.GetString(1);
                     string link = dr.GetString(2);
                     string descripcion = dr.GetString(3);
                     string foto = dr.GetString(4);
                     byte[] bytes = File.ReadAllBytes(foto);
                     string imagen = Convert.ToBase64String(bytes);
-                    Proyectos proyecto = new Proyectos(nombre,link,descripcion,foto,imagen);
+                    Proyectos proyecto = new Proyectos(id,nombre,link,descripcion,foto,imagen);
                     lista.Add(proyecto);
                 }
                 dr.Close();
@@ -113,6 +114,7 @@ namespace portfolio1.Models
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            proyecto.Foto = "C:\\Users\\facu1\\source\\repos\\Portfolio\\Backend\\portfolio1\\uploads\\" + proyecto.Foto;
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();

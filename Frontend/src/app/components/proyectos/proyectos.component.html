@@ -5,15 +5,20 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <button class="btn btn-success" routerLink="/nuevoProyecto">Nuevo Proyecto</button>
+        <button class="btn btn-success" routerLink="/nuevoProyecto"  *ngIf="isLogged">Nuevo Proyecto</button>
     </div>
 </div>
-<div class="row" *ngFor="let proyecto of proyectos">
-    <div class="col-lg-5 offset-md-1">
+<div class="row mt-3" *ngFor="let proyecto of proyectos" >
+    <div class="col-lg-4 offset-md-1">
         <p class="h2">{{proyecto.Nombre}}</p>
-        <p class="h4">{{proyecto.Descripcion}}</p>
+        <p class="h4">Descripcion: {{proyecto.Descripcion}}</p>
+        <p class="h4">Repositorio: {{proyecto.Link}}</p>
     </div>
     <div class="col-lg-4 offset-md-1 mb-3">
-        <img class="rounded" [src]="'data:image/png;base64,'+ proyecto.Imagen " alt="">
+        <img class="rounded" [src]="'data:image/png;base64,'+ proyecto.Imagen " >
+    </div>
+    <div class="col-lg-2">
+        <button class="btn btn-success me-2" routerLink="/editproyecto/{{proyecto.Id}}" *ngIf="isLogged">Editar</button>
+        <button class="btn btn-danger" (click)="deleteProject(proyecto.Id) " *ngIf="isLogged">Borrar</button>
     </div>
 </div>
