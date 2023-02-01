@@ -7,7 +7,7 @@ import { Experiencia } from '../models/experiencia';
   providedIn: 'root'
 })
 export class ExperenciaService {
-  //ExpUrl = 'https://localhost:44311/api/Experiencia'
+ //ExpUrl = 'https://localhost:44311/api/Experiencia'
   ExpUrl = "https://facundoportafolio.bsite.net/api/Experiencia";
 
   constructor(private httpClient:HttpClient) { }

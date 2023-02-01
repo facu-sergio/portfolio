@@ -8,7 +8,7 @@ import { Proyecto } from '../models/proyecto';
 })
 
 export class ProyectoService {
-  //proyectoUrl:string = "https://localhost:44311/api/Proyectos";
+   //proyectoUrl:string = "https://localhost:44311/api/Proyectos";
   proyectoUrl:string = "https://facundoportafolio.bsite.net/api/Proyectos";
   constructor(private httpClient:HttpClient) { }
 
