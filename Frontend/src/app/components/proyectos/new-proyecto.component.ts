@@ -35,7 +35,7 @@ export class NewProyectoComponent implements OnInit {
     this.http.post("https://facundoportafolio.bsite.net/api/File",filedata).subscribe(res=>{
 
   });
-    
+  this.fileService.saveFile(filedata);
     this.proyectoService.saveProyecto(proyecto).subscribe(res=>{
       alert('proyecto guardado');
       this.router.navigate(['home']);
