@@ -9,14 +9,17 @@
     </div>
 </div>
 <div class="row mt-3" *ngFor="let proyecto of proyectos" >
-    <div class="col-lg-4 offset-md-1">
+    <div class="col-lg-3 offset-md-1 ">
         <p class="h2">{{proyecto.Nombre}}</p>
-        <p class="h4">Descripcion: {{proyecto.Descripcion}}</p>
+        <p class="h4">{{proyecto.Descripcion}}</p>
         <a href="{{proyecto.Link}}" class="btn btn-primary" target="_blank">Link repositorio</a>
-   
+        <a href="{{proyecto.Web}}" class="btn btn-primary ms-2" target="_blank">Link web</a>
     </div>
-    <div class="col-lg-4 offset-md-1 mb-3">
-        <img class="rounded" [src]="'data:image/png;base64,'+ proyecto.Imagen " >
+    <div class="col-lg-3 offset-md-1  mb-3 ">
+        <img class="rounded" [src]="'data:image/png;base64,'+ proyecto.Imagen" >
+    </div>
+    <div class="col-lg-3  mb-3">
+        <img class="rounded" [src]="'data:image/png;base64,'+ proyecto.Imagen2" >
     </div>
     <div class="col-lg-2">
         <button class="btn btn-success me-2" routerLink="/editproyecto/{{proyecto.Id}}" *ngIf="isLogged">Editar</button>

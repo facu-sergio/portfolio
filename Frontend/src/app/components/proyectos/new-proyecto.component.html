@@ -6,29 +6,43 @@
         
     </div>
 </div>
-<div class="row">
-    <form action="" (ngSubmit)="onCreate()" novalidate #f="ngForm">
+<form action="" (ngSubmit)="onCreate()" novalidate #f="ngForm">
+    <div class="row">
         <div class="form-group col-md-5 offset-md-3">
             <label for="puestoE">Nombre</label>
             <input type="text" class="form-control input-sm" id="nombre" name="nombre" [(ngModel)]="nombreP" required>
         </div>
         <div class="form-group col-md-5 offset-md-3">
-            <label for="periodoE">Link</label>
+            <label for="link">Link Repositorio</label>
             <input type="text" class="form-control" id="link" name="link" [(ngModel)]="linkP" required>
         </div>
         <div class="form-group col-md-5 offset-md-3">
-            <label for="descripcionE">Descripcion</label>
+            <label for="web">Link Web</label>
+            <input type="text" class="form-control" id="web" name="web" [(ngModel)]="web" required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="descripcion">Descripcion</label>
             <input type="text"  class="form-control" id="descripcion" name="descripcion"  [(ngModel)]="descripcionP"   required>
         </div>
         <div class="form-group col-md-5 offset-md-3">
-            <label for="descripcionE">Imagen</label>
+            <label for="imagen">Imagen</label>
             <input type="file"  class="form-control" id="imagen" name="imagen" (change)="onSelectedFile($event)"  [(ngModel)]="imagenP"   required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="descripcionE">Imagen2</label>
+            <input type="file"  class="form-control" id="imagen2" name="imagen2" (change)="onSelectedFile2($event)"  [(ngModel)]="imagenP2"   required>
         </div>
         <div class="col-md-5 offset-md-3 mt-3">
             <button class="btn btn-success" >Guardar Proyecto</button>
-        </div>
-        <div class="col-md-5 offset-md-5 mt-3" >
+        </div> 
+    </div>
+    <div class="row">
+       
+        <div class="col-md-4 offset-md-3  mt-3" >
             <img [src]="url"  height="200">
         </div>
-    </form>
-</div>
+        <div class="col-md-4  mt-3" >
+            <img [src]="url2"  height="200">
+        </div>
+    </div>
+</form>

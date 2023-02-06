@@ -13,8 +13,11 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
 export class EditProyectoComponent implements OnInit {
   proyecto: Proyecto = null;
   fullpath: string = "";
+  fullpath2:string = "";
   selectedFile: File = null;
+  selectedFile2: File = null;
   photoSelected: string | ArrayBuffer;
+  photoSelected2: string | ArrayBuffer;
   id = this.activatedRoute.snapshot.params['id'];
   constructor(private proyectoService: ProyectoService, private activatedRoute: ActivatedRoute, private fileService: FileService, private router: Router) { }
 
@@ -22,6 +25,7 @@ export class EditProyectoComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.proyectoService.getProyecto(this.id).subscribe(data => {
       this.proyecto = data;
+      console.log(this.proyecto)
     })
   }
 
@@ -44,6 +48,18 @@ export class EditProyectoComponent implements OnInit {
       this.proyecto.Foto = this.fullpath;
       this.proyecto.Foto = this.proyecto.Foto.replace(/\\/g, '/');
       this.proyecto.Foto = this.proyecto.Foto.substring(this.proyecto.Foto.lastIndexOf('/') + 1);
+
+      
+    }
+    if(this.selectedFile2){
+      this.fullpath2 = `../assets/` + this.selectedFile2.name;
+      this.fullpath2 = this.fullpath2.substring(this.fullpath2.lastIndexOf('/') + 1);
+      this.proyecto.Foto2 = this.fullpath2;
+    }else{
+      this.fullpath2 = `../assets/` + this.proyecto.Foto2;
+      this.proyecto.Foto2 = this.fullpath2;
+      this.proyecto.Foto2 = this.proyecto.Foto2.replace(/\\/g, '/');
+      this.proyecto.Foto2 = this.proyecto.Foto2.substring(this.proyecto.Foto2.lastIndexOf('/') + 1);
     }
 
     this.proyectoService.updateProyecto(this.id, this.proyecto).subscribe(res => {
@@ -61,6 +77,17 @@ export class EditProyectoComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.photoSelected = event.target.result;
+      }
+    }
+  }
+
+  onSelectedFile2(e: any) {
+    this.selectedFile2 = <File>e.target.files[0];
+    if (e.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        this.photoSelected2 = event.target.result;
       }
     }
   }

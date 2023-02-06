@@ -13,23 +13,38 @@
             <input type="text" class="form-control input-sm" id="nombre" name="nombre" [(ngModel)]="proyecto.Nombre" required>
         </div>
         <div class="form-group col-md-5 offset-md-3">
-            <label for="periodoE">Link</label>
+            <label for="link">Link repositorio</label>
             <input type="text" class="form-control" id="link" name="link" [(ngModel)]="proyecto.Link" required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="web">Web</label>
+            <input type="text" class="form-control" id="web" name="web" [(ngModel)]="proyecto.Web" required>
         </div>
         <div class="form-group col-md-5 offset-md-3">
             <label for="descripcionE">Descripcion</label>
             <input type="text"  class="form-control" id="descripcion" name="descripcion"  [(ngModel)]="proyecto.Descripcion"   required>
         </div>
         <div class="form-group col-md-5 offset-md-3">
-            <label for="descripcionE">Imagen</label>
+            <label for="imagen">Imagen</label>
             <input type="file"  class="form-control" id="imagen" name="imagen" (change)="onSelectedFile($event)"  [(ngModel)]="proyecto.Imagen"   required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="imagen2">Imagen</label>
+            <input type="file"  class="form-control" id="image2" name="imagen" (change)="onSelectedFile2($event)"  [(ngModel)]="proyecto.Imagen2"   required>
         </div>
         <div class="col-md-5 offset-md-3 mt-3">
             <button class="btn btn-success" >Guardar Cambios</button>
         </div>
-        <div class="col-md-5 offset-md-5 mt-3" >
-            <img *ngIf="!photoSelected" [src]="'data:image/jpg;base64,' + proyecto.Imagen"  height="200">
-            <img *ngIf="photoSelected" [src]="photoSelected"  height="200">
+        <div class="row mt-4">
+            <div class="col-md-2 offset-md-3  " >
+                <img *ngIf="!photoSelected" [src]="'data:image/jpg;base64,' + proyecto.Imagen"  height="200" class="rounded">
+                <img *ngIf="photoSelected" [src]="photoSelected"  height="200">
+            </div>
+            <div class="col-md-3 " >
+                <img *ngIf="!photoSelected2" [src]="'data:image/jpg;base64,' + proyecto.Imagen2"  height="200" class="rounded">
+                <img *ngIf="photoSelected2" [src]="photoSelected2"  height="200">
+            </div>
         </div>
+        
     </form>
 </div>
