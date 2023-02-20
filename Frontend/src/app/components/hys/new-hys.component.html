@@ -17,6 +17,13 @@
                     <label for="descripcionE">ícono</label>
                     <input type="file"  class="form-control" id="descripcionE" name="descripcionE"  (change)="onSelectedFile($event)" required>
                 </div>
+                <div class="form-group col-md-5 offset-md-3">
+                    <label for="tipo" >Tipo</label>
+                    <select name="tipo" id="tipo" class="form-select" [(ngModel)]="tipo">
+                        <option value="Frontend">Frontend</option>
+                        <option value="Backend">Backend</option>
+                    </select>
+                </div>
                 <div class="col-md-5 offset-md-3"><button class="btn btn-success mt-3">
                     Agregar skill
                 </button></div>

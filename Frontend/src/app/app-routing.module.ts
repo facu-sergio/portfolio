@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
+import { EditEducacionComponent } from './components/educacion/edit-educacion.component';
+import { NewEducacionComponent } from './components/educacion/new-educacion.component';
 import { EditExperienciaComponent } from './components/experencia-laboral/edit-experiencia.component';
 import { NewExperienciaComponent } from './components/experencia-laboral/new-experiencia.component';
 import { HomeComponent } from './components/home/home.component';
@@ -20,7 +23,10 @@ const routes: Routes = [
   {path:'nuevaskil', component:NewHysComponent, canActivate: [AuthGuard]},
   {path:'editskill/:id', component:EditHysComponent,  canActivate: [AuthGuard]},
   {path:'nuevoProyecto', component:NewProyectoComponent, canActivate: [AuthGuard]},
-  {path:'editproyecto/:id', component:EditProyectoComponent,  canActivate: [AuthGuard]}
+  {path:'editproyecto/:id', component:EditProyectoComponent,  canActivate: [AuthGuard]},
+  {path: 'nuevaFormacion',component:NewEducacionComponent,canActivate: [AuthGuard]},
+  {path:'editarFormacion/:id',component:EditEducacionComponent,canActivate:[AuthGuard]},
+  {path:'editarInfoPersonal/:id',component:EditAcercaDeComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

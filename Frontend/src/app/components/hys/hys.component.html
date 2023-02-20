@@ -1,33 +1,50 @@
-<div class="row  mt-4">
-    <div class="col-md-3">
-        <h1 class="h1">Hard y Soft Skills</h1>
-    </div>
-    <div class="row" >
-        <div class="col-lg-2 text-start ">
-            <button type="button" class="btn btn-success" routerLink="/nuevaskil" *ngIf="isLogged"  >
-                Nueva Skill
-            </button>
-        </div>
+<div class="row mt-4">
+    <div class="col-md-5 offset-md-4">
+        <p class="h1 ms-2 text-warning">Habilidades <img src="../../../assets/compu.png" width="20%" height="15%" ></p>
     </div>
 </div>
 <div class="row" >
-    
-    <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 col-xl-2 text-center mx-3 " *ngFor="let skill of skills">
-        <circle-progress
-        [percent]= "skill.Dominio"
-        [radius]="100"
-        [imageSrc]="'data:image/png;base64,'+ skill.Imagen "
-        [showImage]="true"
-        [imageHeight]="95"
-        [imageWidth]="110"
-        [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'#78C000'"
-        [innerStrokeColor]="'#C7E596'"
-        [animation]="true"
-        [animationDuration]="300"
-    ></circle-progress>
-    <button class="btn btn-success" id="editar" routerLink="/editskill/{{skill.Id}}" *ngIf="isLogged">Editar</button>
-    <button class="btn btn-danger" id="borrar" (click)="deleteSkill(skill.Id)" *ngIf="isLogged">Borrar</button>
+    <div class="col-lg-2 text-start ">
+        <button type="button" class="btn btn-success" routerLink="/nuevaskil" *ngIf="isLogged"  >
+            Nueva Skill
+        </button>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-1">
+        <p class="h4 ms-2">Frontend</p>    
+    </div>
+</div>
+<div class="row mt-1">
+    <ng-container *ngFor="let skill of skills;let i = index;">
+        <div class="col-6 col-md-2 col-lg-2 col-xl-2 mt-1 text-center "  *ngIf="skill.Tipo=='Frontend'"  >
+            <img [src]="'data:image/png;base64,'+ skill.Imagen " class="img-fluid  custom-width"  alt="">
+            <p class="  text-dark text-uppercase  fw-bolder">{{skill.Skillname}} </p>
+            <button class="btn btn-success" id="editar" routerLink="/editskill/{{skill.Id}}" *ngIf="isLogged && skill.Tipo=='Frontend' " >Editar</button>
+            <button class="btn btn-danger" id="borrar" (click)="deleteSkill(skill.Id)" *ngIf="isLogged && skill.Tipo=='Frontend'">Borrar</button>
+        </div>
+        
+    </ng-container>
+        
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-2 ms-2">
+        <p class="h4 ">Backend y Bases de datos</p>    
+    </div>
+</div>
+<div class="row">
+        <ng-container *ngFor="let skill of skills">
+            <div class=" col-6 col-md-2 col-lg-3 col-xl-2 mt-2 text-center"  *ngIf="skill.Tipo=='Backend'"  >
+            <img [src]="'data:image/png;base64,'+ skill.Imagen " class="img-fluid  custom-width" alt="">
+            <button class="btn btn-success" id="editar" routerLink="/editskill/{{skill.Id}}" *ngIf="isLogged && skill.Tipo=='Backend' " >Editar</button>
+            <button class="btn btn-danger" id="borrar" (click)="deleteSkill(skill.Id)" *ngIf="isLogged && skill.Tipo=='Backend'">Borrar</button>
+            </div>
+        </ng-container>
+        
+        
+</div>
+    
+    
+    
+

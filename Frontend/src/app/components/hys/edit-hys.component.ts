@@ -25,7 +25,6 @@ export class EditHysComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.skillService.getSkill(id).subscribe(data =>{
       this.skill = data;
-      console.log(this.skill);
     })
   }
   updateSkill(){

@@ -1,21 +1,22 @@
 <div class="row mt-4 ">
-    <h1>Experiencia Laboral</h1>
+    <div class="col-md-7 offset-md-3">
+        <h1 class="text-warning">Experiencia Laboral <img src="../../../assets/working.png" width="100" height="100"></h1>
+    </div>
     <div class="col-lg-2">
         <button type="button" class="btn btn-success" routerLink="/nuevaexp" *ngIf="isLogged" >
             Nueva Experiencia
         </button>
     </div>
-     <div class="col-lg-10 offset-lg-1 ">
-        <table class="table">
-            <tbody class="text-white">
-                <tr *ngFor="let Experiencia of experiencia">
-                    <td>{{Experiencia.Puesto}}</td>
-                    <td>{{Experiencia.Periodo}}</td>
-                    <td>{{Experiencia.Desc}}</td>
-                    <td *ngIf="isLogged" ><button class="btn btn-success" routerLink="/editexp/{{Experiencia.Id}}">Editar</button> </td>
-                    <td *ngIf="isLogged"> <button class="btn btn-danger" (click)="eliminarExp(Experiencia.Id)">Borrar</button> </td>
-                </tr>
-            </tbody>
-        </table>
-     </div>
+    <ng-container *ngFor="let Experiencia of experiencia">
+        <div class="row">
+            <div class="col-md-1 text-end"><img src="../../../assets/portafolio.png" class="img-fluid w-50" alt=""></div>
+            <div class="col-md-9">
+                <p class="h3"> {{Experiencia.Periodo}} {{Experiencia.Puesto}} </p>
+            </div>
+            <div class="col-md-2" *ngIf="isLogged">
+                <button class="btn btn-success me-2" routerLink="/editexp/{{Experiencia.Id}}">Editar</button> 
+                <button class="btn btn-danger" (click)="eliminarExp(Experiencia.Id)">Borrar</button>
+            </div>   
+         </div>
+    </ng-container>
 </div>

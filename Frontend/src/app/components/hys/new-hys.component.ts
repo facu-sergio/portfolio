@@ -14,7 +14,8 @@ export class NewHysComponent implements OnInit {
   nombreS: string = "";
   dominioS: number;
   selectedFile : File = null;
-  url:string = ""
+  url:string = "";
+  tipo:string = "";
   constructor(private skillService:SkillsService, private fileService:FileService , private router:Router , private http:HttpClient) { }
 
   ngOnInit(): void {
@@ -24,13 +25,13 @@ export class NewHysComponent implements OnInit {
     filedata.append('image', this.selectedFile);
     filedata.append('nombre', this.selectedFile.name);
     const filename = filedata.get('nombre').toString();
-    const skill =  new Skills(this.nombreS,this.dominioS, filename);
-    /*this.http.post("https://facundoportafolio.bsite.net/api/File",filedata).subscribe(res=>{
-
-    });*/
-    this.http.post("https://localhost:44311/api/File",filedata).subscribe(res=>{
+    const skill =  new Skills(this.nombreS,this.dominioS,this.tipo,filename);
+    this.http.post("https://facundoportafolio.bsite.net/api/File",filedata).subscribe(res=>{
 
     });
+    /*this.http.post("https://localhost:44311/api/File",filedata).subscribe(res=>{
+
+    });*/
     this.fileService.saveFile(filedata);
     
     this.skillService.saveSkill(skill).subscribe( data => {

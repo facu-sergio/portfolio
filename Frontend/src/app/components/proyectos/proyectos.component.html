@@ -1,6 +1,6 @@
-<div class="row">
-    <div class="col-md-4 ">
-        <p class="h1">Proyectos</p>
+<div class="row  mt-5">
+    <div class="col-md-5 offset-md-4 ">
+        <p class="h1 text-warning">Proyectos <img src="../../../assets/project.png" width="15%" height="15%"></p>
     </div>
 </div>
 <div class="row">
@@ -8,21 +8,21 @@
         <button class="btn btn-success" routerLink="/nuevoProyecto"  *ngIf="isLogged">Nuevo Proyecto</button>
     </div>
 </div>
-<div class="row mt-3" *ngFor="let proyecto of proyectos" >
-    <div class="col-lg-3 offset-md-1 ">
+<div  class="row mt-3  " *ngFor="let proyecto of proyectos" >
+    <div class="col-12 col-lg-3 col-md-6 invisible-izq" id="datosProyecto">
         <p class="h2">{{proyecto.Nombre}}</p>
         <p class="h4">{{proyecto.Descripcion}}</p>
         <a href="{{proyecto.Web}}" class="btn btn-primary" target="_blank">Link web</a>
         <a href="{{proyecto.Link}}" class="btn btn-primary ms-2" target="_blank">Link repositorio</a>
     </div>
-    <div class="col-lg-3 offset-md-1  mb-3 ">
-        <img class="rounded" [src]="'data:image/png;base64,'+ proyecto.Imagen" >
+    <div class="col-12 col-lg-4 col-md-3  mt-2  invisible-derecha" id="imagenesProyecto">
+        <img  class="rounded imgProject " [src]="'data:image/png;base64,'+ proyecto.Imagen"  >
     </div>
-    <div class="col-lg-3  mb-3">
-        <img class="rounded" [src]="'data:image/png;base64,'+ proyecto.Imagen2" >
+    <div class="col-12 col-lg-4 col-md-3  mt-2 invisible-derecha" id="imagenesProyecto">
+        <img  class="rounded imgProject " [src]="'data:image/png;base64,'+ proyecto.Imagen2"  >
     </div>
-    <div class="col-lg-2">
-        <button class="btn btn-success me-2" routerLink="/editproyecto/{{proyecto.Id}}" *ngIf="isLogged">Editar</button>
-        <button class="btn btn-danger" (click)="deleteProject(proyecto.Id) " *ngIf="isLogged">Borrar</button>
+    <div class="col-lg-2 col-md-3" *ngIf="isLogged">
+        <button class="btn btn-success me-2" routerLink="/editproyecto/{{proyecto.Id}}" >Editar</button>
+        <button class="btn btn-danger" (click)="deleteProject(proyecto.Id) " >Borrar</button>
     </div>
 </div>

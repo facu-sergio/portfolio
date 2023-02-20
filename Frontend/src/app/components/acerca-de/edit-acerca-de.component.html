@@ -1,0 +1,66 @@
+<div class="cointainer">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <p class="h1  mt-3">Editar Info personal</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <form action="" (ngSubmit)="updateInfo()" novalidate #f="ngForm">
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control input-sm" id="nombre" name="nombre" [(ngModel)]="persona[0].Nombre" required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="apellido">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="persona[0].Apellido" required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="edad">Edad</label>
+            <input type="number" class="form-control" id="edad" name="edad" [(ngModel)]="persona[0].Edad" required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="provincia">Provincia</label>
+            <input type="text"  class="form-control" id="provincia" name="provincia"  [(ngModel)]="persona[0].Provincia"   required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="localidad">Localidad</label>
+            <input type="text"  class="form-control" id="localidad" name="provincia"  [(ngModel)]="persona[0].Localidad"   required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="calle">Calle</label>
+            <input type="text"  class="form-control" id="calle" name="calle"  [(ngModel)]="persona[0].Calle"   required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="numero">Numero</label>
+            <input type="number"  class="form-control" id="numero" name="numero"  [(ngModel)]="persona[0].Numero"   required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="telefono">Telefono</label>
+            <input type="number"  class="form-control" id="telefono" name="telefono"  [(ngModel)]="persona[0].Telefono"   required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="descripcion">Descripcion</label>
+            <input type="text"  class="form-control" id="descripcion" name="descripcion"  [(ngModel)]="persona[0].Descripcion"   required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="oficio">Oficio</label>
+            <input type="text"  class="form-control" id="oficio" name="oficio"  [(ngModel)]="persona[0].Oficio"   required>
+        </div>
+        <div class="form-group col-md-5 offset-md-3">
+            <label for="foto">Foto</label>
+            <input type="file"  class="form-control" id="foto" name="foto" (change)="onPhotoSelected($event)"  [(ngModel)]="persona[0].Foto"   required>
+        </div>
+        <div class="col-md-5 offset-md-3 mt-3">
+            <button class="btn btn-success" >Guardar Cambios</button>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-2 offset-md-3  " >
+                <img *ngIf="!photoSelected" [src]="'data:image/png;base64,'+ persona[0].Imagen"  height="200" class="rounded">
+                <img *ngIf="photoSelected" [src]="photoSelected"  height="200">
+            </div>
+            
+        </div>
+    </form>
+</div>
+

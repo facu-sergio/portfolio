@@ -1,24 +1,19 @@
 <div class="row mt-4 ">
-    <div class="col-md-11 "><p class="h1 ">Educación</p>
-    <button class="btn btn-success" *ngIf="isLogged"  >agregar</button>
+    <div class="col-md-8 offset-md-4 text-warning"><p class="h1 ">Educación <img src="../../../assets/study2.png" width="70" height="70"></p>
+    <a class="btn btn-success" href="/nuevaFormacion" *ngIf="isLogged">agregar</a>
     </div>
     
 </div>
-<div class="row mt-2">
-    <div class="col-md-1"></div>
-    <div class="col-md-11">
-        <p class="h3">- Bachiller con orientación en administración de empresas (Instituto Nueva Gente y 
-            Escuela Secundaria Media Nº203, Tristán Suarez).</p>
+<ng-container *ngFor="let estudio of estudios">
+    <div class="row mt-2">
+        <div class="col-md-1 text-end"><img src="../../../assets/title2.png" alt="" class="img fluid w-50"></div>
+        <div class="col-md-9 ">
+            <p class="h3"> {{estudio.Age}} {{estudio.Titulo}} ({{estudio.Institucion}}) </p>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-success"  href="/editarFormacion/{{estudio.Id}}" *ngIf="isLogged">Editar</a>
+            <button class="btn btn-warning ms-2"  (click)="deleteEstudio(estudio.Id)" *ngIf="isLogged">Borrar</button>
+        </div>
+        
     </div>
-</div>
-<div class="row mt-2">
-    <div class="col-md-1"></div>
-    <div class="col-md-11">
-        <p class="h3">- Actualmente cursando
-            ultimas 2 materias de la  Tecnicatura
-            Universitaria en Desarrollo de
-            Software en la Universidad
-            Provincial de Ezeiza.</p>
-            
-    </div>
-</div>
+</ng-container>

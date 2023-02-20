@@ -1,6 +1,4 @@
-img{
-    height: 200px;
-}
+
 @media (max-width:1200px){
  p{
     text-align: center;

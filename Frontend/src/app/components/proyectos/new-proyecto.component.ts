@@ -42,13 +42,19 @@ export class NewProyectoComponent implements OnInit {
     const proyecto =  new Proyecto(this.nombreP,this.linkP,this.web,this.descripcionP, filename,filename2);
   
  
-this.http.post("https://localhost:44311/api/File",filedata).subscribe(res=>{
+/*this.http.post("https://localhost:44311/api/File",filedata).subscribe(res=>{
 
 });
 this.http.post("https://localhost:44311/api/File",filedata2).subscribe(res=>{
 
-})
+})*/
 
+this.http.post("https://facundoportafolio.bsite.net/api/File",filedata).subscribe(res=>{
+
+});
+this.http.post("https://facundoportafolio.bsite.net/api/File",filedata2).subscribe(res=>{
+
+})
   this.fileService.saveFile(filedata);
     this.proyectoService.saveProyecto(proyecto).subscribe(data=>{
       alert('proyecto guardado');

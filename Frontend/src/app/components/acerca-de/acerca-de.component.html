@@ -1,14 +1,17 @@
 <div class="row pt-2">
-    <div class=" offset-sm-4  col-sm-8 offset-md-0  col-md-4 col-lg-3 col-xl-2   ">
-        <img class="rounded-circle" src="../../../assets/perfil.jpg" alt="">
+    <div class="col-xl-2 col-lg-3 col-md-3   col-sm-6 ">
+        <img class="img-fluid  w-75  rounded-circle  mx-auto d-block" [src]="'data:image/png;base64,'+ persona[0].Imagen"  >
     </div>
-    <div class=" col-sm-12 col-md-4 col-lg-5 col-xl-3 ">
-        <p  class="h2 "> {{datatable[0].Nombre}} {{datatable[0].Apellido}}</p>
-        <p class="h3 ">Full stack developer junior</p>
+    <div class="col-xl-3  col-lg-2 col-md-3   mt-xl-4">
+        <p  class="h2  text-warning"> {{persona[0].Nombre}} {{persona[0].Apellido}}</p>
+        <p class="h3 text-warning "> {{persona[0].Oficio}} </p>
     </div>
-    <div class=" col-sm-12 col-md-4 col-lg-4 col-xl-6 ">
-        <p class="h4">Acerca de mí</p>
-        <p class="h5 ">{{datatable[0].Descripcion}}</p>
-
+    <div class="col-xl-6 col-lg-4 col-md-3  mt-xl-4 text-start">
+        <p class="h4 text-warning ">Acerca de mí</p>
+        <p class="h5 ">{{persona[0].Descripcion}}</p>
     </div>
+    <div class="col-xl-1 col-lg-1 col-md-1" *ngIf="isLogged">
+        <a class="btn btn-success" href="editarInfoPersonal/{{persona[0].Id}}" >Editar</a>
+    </div>
+    
 </div>

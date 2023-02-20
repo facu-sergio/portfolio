@@ -10,11 +10,11 @@ export class PersonaService {
 
   constructor( private http:HttpClient) { }
 
-  url:string = "https://localhost:44311/api/Persona";
-  //url:string = "https://facundoportafolio.bsite.net/api/Persona";
+  //url:string = "https://localhost:44311/api/Persona";
+  url:string = "https://facundoportafolio.bsite.net/api/Persona";
 
-  getPersona(){
-    return this.http.get(this.url);
+  getPersona():Observable<Persona[]>{
+    return this.http.get<Persona[]>(this.url);
   }
 
   addPersona(persona:Persona):Observable<Persona>{

@@ -15,6 +15,7 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -29,6 +30,10 @@ import { NewHysComponent } from './components/hys/new-hys.component';
 import { EditHysComponent } from './components/hys/edit-hys.component';
 import { NewProyectoComponent } from './components/proyectos/new-proyecto.component';
 import { EditProyectoComponent } from './components/proyectos/edit-proyecto.component';
+import { NewEducacionComponent } from './components/educacion/new-educacion.component';
+import { EditEducacionComponent } from './components/educacion/edit-educacion.component';
+import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
+
 
 
 @NgModule({
@@ -51,6 +56,11 @@ import { EditProyectoComponent } from './components/proyectos/edit-proyecto.comp
     EditHysComponent,
     NewProyectoComponent,
     EditProyectoComponent,
+    NewEducacionComponent,
+    EditEducacionComponent,
+    EditAcercaDeComponent,
+    
+
     
     
   ],
@@ -59,7 +69,8 @@ import { EditProyectoComponent } from './components/proyectos/edit-proyecto.comp
     AppRoutingModule,
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [
     //jwt

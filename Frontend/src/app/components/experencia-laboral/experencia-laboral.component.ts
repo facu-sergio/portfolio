@@ -24,9 +24,7 @@ export class ExperenciaLaboralComponent implements OnInit {
 
   cargarExperiencias(): void {
     this.experienciaService.lista().subscribe(
-      
       data => { this.experiencia = data;
-        /*console.log(this.experiencia);*/
         console.log(data); }
     )
   }

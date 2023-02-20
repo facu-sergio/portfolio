@@ -13,6 +13,13 @@
                     <label for="dominio">Dominio</label>
                     <input type="text" class="form-control" name="dominio" [(ngModel)]="skill.Dominio">
                 </div>
+                <div class="form-group col-md-5 offset-md-3">
+                    <label for="tipo" >Tipo</label>
+                    <select name="tipo" id="tipo" class="form-select" [(ngModel)]="skill.Tipo">
+                        <option value="Frontend">Frontend</option>
+                        <option value="Backend">Backend</option>
+                    </select>
+                </div>
                 <div class="form-group col-md-5 offset-md-3 mt-3">
                     <input type="file" (change)="onPhotoSelected($event)">
                 </div>

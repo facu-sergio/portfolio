@@ -2,6 +2,24 @@
     padding-left: 20px;
 }
 
+
+.custom-width{
+    width: 80%;
+}
+
+  @media (min-width: 577px) {
+    .custom-width {
+      width: 70%;
+      height: auto;
+    }
+  }
+
+@media (min-width:1200px){
+    .custom-width{
+        width: 70%;
+        height: auto;
+    }
+}
 #borrar{
     margin-left: 10px;
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/models/persona';
+import { AuthService } from 'src/app/services/auth.service';
 import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
@@ -8,20 +9,23 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
-  datatable:any = [];
-
-  constructor(private personaService:PersonaService){
+  persona:Persona[]=[];
+  isLogged:boolean = false;
+  constructor(private personaService:PersonaService,private authService:AuthService){
 
   }
 
   ngOnInit(): void {
-    this.onDataTable();
+    this.getDatosPersonales();
+    this.isLogged = this.authService.isAuth();
   }
 
-  onDataTable(){
-    this.personaService .getPersona().subscribe(res => {
-      this.datatable = res;
-      console.log(res);
+  getDatosPersonales(){
+    this.personaService.getPersona().subscribe(data=>{
+      this.persona = data;
+      console.log(this.persona[0])
+    },err=>{
+      alert('Fallo al traer datos de persona')
     })
   }
 

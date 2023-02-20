@@ -22,7 +22,6 @@ export class HysComponent implements OnInit {
   getSkills():void {
     this.skillService.getSkills().subscribe(data =>{
       this.skills = data;
-      console.log(data);
     })
   }
 
@@ -33,7 +32,7 @@ export class HysComponent implements OnInit {
   deleteSkill(id:number){
     this.skillService.deleteSkill(id).subscribe(data =>{
       alert('Skill eliminada correctamente');
-      window.location.reload();
+      this.getSkills();
     },err=>{
       alert('Error al borrar skill');
     })

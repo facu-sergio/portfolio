@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Formacion } from 'src/app/models/formacion';
 import { AuthService } from 'src/app/services/auth.service';
+import { FormacionService } from 'src/app/services/formacion.service';
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
@@ -7,14 +9,31 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class EducacionComponent implements OnInit {
   isLogged:boolean = false;
-  constructor(private authService:AuthService ) { }
+  estudios:Formacion[];
+  constructor(private authService:AuthService,private formacionService:FormacionService ) { }
 
   ngOnInit(): void {
-    
+    this.getEstudios();
+  }
+
+  getEstudios(){
+    this.formacionService.getFormacion().subscribe(data=>{
+      this.estudios=data;
+    },err=>{
+      alert('fallo')
+    })
     if(this.authService.isAuth()){
       this.isLogged=true;
     }
-    
+  }
+  
+  deleteEstudio(id:number){
+    this.formacionService.deleteFormacion(id).subscribe(data=>{
+      alert('Estudio eliminado correctamente');
+      this.getEstudios();
+    },err=>{
+      alert('fallo');
+    })
   }
   
 }
