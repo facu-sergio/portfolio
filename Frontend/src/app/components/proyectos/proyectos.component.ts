@@ -58,14 +58,14 @@ export class ProyectosComponent implements OnInit {
         entrada.target.classList.add('visible')
       }else{
         //entrada.target.classList.add('invisible-izq')
-        entrada.target.class.remove('visible')
+        entrada.target.classList.remove('visible')
       }
     });
   }
   observer =  new IntersectionObserver(this.cargarImagen,{
     root: null,
-    rootMargin: '500px 100px 0px 0px',
-    threshold: 1.0
+    rootMargin: '0px 0px 0px 0px',
+    threshold: 0.9
   });
   
 }

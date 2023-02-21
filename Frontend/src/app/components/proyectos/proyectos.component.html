@@ -1,4 +1,4 @@
-<div class="row  mt-5">
+<div class="row">
     <div class="col-md-5 offset-md-4 ">
         <p class="h1 text-warning">Proyectos <img src="../../../assets/project.png" width="15%" height="15%"></p>
     </div>
@@ -15,10 +15,10 @@
         <a href="{{proyecto.Web}}" class="btn btn-primary" target="_blank">Link web</a>
         <a href="{{proyecto.Link}}" class="btn btn-primary ms-2" target="_blank">Link repositorio</a>
     </div>
-    <div class="col-12 col-lg-4 col-md-3  mt-2  invisible-derecha" id="imagenesProyecto">
+    <div class="col-12 col-lg-4 col-md-3  mt-2  invisible-derecha zoomimg" id="imagenesProyecto">
         <img  class="rounded imgProject " [src]="'data:image/png;base64,'+ proyecto.Imagen"  >
     </div>
-    <div class="col-12 col-lg-4 col-md-3  mt-2 invisible-derecha" id="imagenesProyecto">
+    <div class="col-12 col-lg-4 col-md-3  mt-2 invisible-derecha zoomimg" id="imagenesProyecto">
         <img  class="rounded imgProject " [src]="'data:image/png;base64,'+ proyecto.Imagen2"  >
     </div>
     <div class="col-lg-2 col-md-3" *ngIf="isLogged">

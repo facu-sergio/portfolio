@@ -28,8 +28,11 @@
     transform: scale(1) translateX(0px);
 }
 
+.zoomimg{
+    transition: .5s ease-in-out all;
+}
 
-.visible:hover{
-    transform: scale(2);
+.zoomimg:hover{
+    transform: scale(1.7);
     z-index: 2;
 }
