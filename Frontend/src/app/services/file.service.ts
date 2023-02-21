@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FileService {
-  fileUrl = "https://facundoportafolio.bsite.net/api/File";
-  //fileUrl:string = "https://localhost:44311/api/File";
+  //fileUrl = "https://facundoportafolio.bsite.net/api/File";
+  fileUrl:string = "https://localhost:44311/api/File";
 
   constructor(private htppClient:HttpClient) { }
 

@@ -17,6 +17,7 @@ export class ProyectosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProyectos();
+    console.log(this.proyectos)
     this.isLogged =  this.authService.isAuth();
   }
   ngAfterViewInit(){

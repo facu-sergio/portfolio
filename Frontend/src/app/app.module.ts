@@ -15,7 +15,7 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
-import { CommonModule } from '@angular/common';
+
 
 
 
@@ -70,7 +70,7 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.com
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
     FormsModule,
-    CommonModule
+    
   ],
   providers: [
     //jwt
