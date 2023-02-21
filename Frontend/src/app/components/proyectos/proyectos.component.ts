@@ -16,15 +16,14 @@ export class ProyectosComponent implements OnInit {
   constructor(private renderer:Renderer2,private el:ElementRef, private proyectoService:ProyectoService, private authService:AuthService ) { }
 
   ngOnInit(): void {
-    this.getProyectos();
     this.isLogged =  this.authService.isAuth();
+    this.getProyectos();
+    console.log(this.proyectos)
   }
   ngAfterViewInit(){
-    /*const imagen1 =  this.renderer.selectRootElement('#imagen1');
-    const imagen2 =  this.renderer.selectRootElement('#imagen2');*/
     const divProyecto =  this.el.nativeElement.querySelectorAll('#datosProyecto')
     const imagenesProyecto =  this.el.nativeElement.querySelectorAll('#imagenesProyecto')
-
+    console.log(divProyecto)
     imagenesProyecto.forEach((imagen:any) => {
       this.observer.observe(imagen);
     });
@@ -32,12 +31,12 @@ export class ProyectosComponent implements OnInit {
     divProyecto.forEach((proyecto:any) => {
       this.observer.observe(proyecto);
     });
-    /*console.log(divProyecto)
-    this.observer.observe(divProyecto);*/
   }
   getProyectos(){
     this.proyectoService.getProyectos().subscribe(data =>{
-      this.proyectos = data;
+      data.forEach(proyecto => {
+        this.proyectos.push(proyecto)
+      });
     })
   }
 
@@ -54,6 +53,7 @@ export class ProyectosComponent implements OnInit {
  cargarImagen =  (entradas:any,observer:IntersectionObserver)=>{
     entradas.forEach((entrada:any) => {
       if(entrada.isIntersecting){
+        console.log('holi')
         //entrada.target.classList.remove('invisible-izq')
         entrada.target.classList.add('visible')
       }else{
