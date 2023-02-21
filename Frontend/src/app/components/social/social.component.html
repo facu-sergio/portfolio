@@ -1,21 +1,12 @@
-<div class="col-md-2 boton">
-  <button type="button" class="btn btn-primary" (click)="login()" *ngIf="!isLogged">Ingresar</button>
-  <button type="button" class="btn btn-primary" (click)="logOut()" *ngIf="isLogged">Cerrar Sesion</button>  
-</div>
+  <!--  <button type="button" class="btn btn-primary" (click)="login()" *ngIf="!isLogged">Ingresar</button>
+        <button type="button" class="btn btn-primary" (click)="logOut()" *ngIf="isLogged">Cerrar Sesion</button>-->
 
-<div class="col-md-2 offset-md-8">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-2 offset-md-5">
-              <a href="" ><img src="../../../assets/faceblue.png" alt=""></a>
-          </div>
-          <div class="col-md-2">
-              <a href=""><img src="../../../assets/dinblue.png" alt=""></a>
-          </div>
-          <div class="col-md-2">
-              <a href=""><img src="../../../assets/icons8-github-400.png" alt=""></a>
-          </div>
-      </div>
-  </div>
-</div>
+  
+    <p class="h5 text-warning  ms-2">Contacto</p>
+    <span class="fs-5 ms-2">Tel: {{persona[0].Telefono}} </span>
+    <span class="fs-5 ms-3">Redes:</span>
+    <a href="" class="img-fluid "><img src="../../../assets/faceblue.png" alt="" /></a>
+    <a href=""><img src="../../../assets/dinblue.png" alt="" /></a>
+    <a href=""><img src="../../../assets/icons8-github-400.png" alt="" /></a>
+  
 

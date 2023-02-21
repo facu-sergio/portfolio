@@ -17,9 +17,7 @@ export class HysComponent implements OnInit {
   
   ngOnInit(): void {
     this.getSkills();
-    this.isLogged = this.authService.isAuth();
-    console.log(this.isLogged)
-    
+    this.isLogged = this.isAuth();
   }
   getSkills():void {
     this.skillService.getSkills().subscribe(data =>{
