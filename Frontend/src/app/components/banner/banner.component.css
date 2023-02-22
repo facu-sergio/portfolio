@@ -1,11 +1,21 @@
-img{
-    width: 99%;
-    height: 450px;
-    padding-left: 10px;
+
+.custom-width{
+    width: 100%;
+    height: 300px;
 }
 
-@media (max-width:1200px){
-    img{
-       height: 420px;
+  @media (min-width: 577px) {
+    .custom-width {
+      width: 70%;
+      height: auto;
     }
-   }
+  }
+
+@media (min-width:1200px){
+    .custom-width{
+        width: 95%;
+        height: 600px;
+        padding-left: 10px;
+        padding-top: 20px;
+    }
+}

@@ -1,3 +1,23 @@
 .row{
     padding-left: 20px;
 }
+
+.custom-width{
+    width: 100%;
+    height: auto;
+}
+
+  @media (min-width: 577px) {
+    .custom-width {
+      width: 35%;
+      height: auto;
+    }
+  }
+
+@media (min-width:1200px){
+    .custom-width{
+        width: 65%;
+        height: auto;
+        
+    }
+}

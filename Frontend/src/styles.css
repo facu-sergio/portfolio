@@ -10,3 +10,16 @@ body{
     color : white;
     overflow-x: hidden;
 }
+.invisible-izq{
+    opacity: 0;
+    transform: translateX(-20px);
+}
+.invisible-derecha{
+    opacity: 0;
+    transform: translateX(75px);
+}
+.visible{
+    opacity: 1;
+    transition: .5s ease-in-out all;
+    transform: scale(1) translateX(0px);
+}

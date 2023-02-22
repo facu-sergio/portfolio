@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Persona } from 'src/app/models/persona';
+import { AnimationService } from 'src/app/services/animation.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { PersonaService } from 'src/app/services/persona.service';
 
@@ -11,13 +12,22 @@ import { PersonaService } from 'src/app/services/persona.service';
 export class AcercaDeComponent implements OnInit {
   persona:Persona[]=[];
   isLogged:boolean = false;
-  constructor(private personaService:PersonaService,private authService:AuthService){
+  constructor(private personaService:PersonaService,private authService:AuthService,private el:ElementRef,private animation:AnimationService){
 
   }
 
   ngOnInit(): void {
     this.getDatosPersonales();
     this.isLogged = this.authService.isAuth();
+  }
+
+  ngAfterViewInit(){
+    let imagenPersona = this.el.nativeElement.querySelector('#imagenPersona');
+    let nombrePersona =  this.el.nativeElement.querySelector('#nombrePersona');
+    let acercaDe = this.el.nativeElement.querySelector('#acercaDe');
+    this.animation.observer.observe(imagenPersona);
+    this.animation.observer.observe(nombrePersona);
+    this.animation.observer.observe(acercaDe);
   }
 
   getDatosPersonales(){
@@ -29,4 +39,5 @@ export class AcercaDeComponent implements OnInit {
     })
   }
 
+  
 }

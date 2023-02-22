@@ -9,8 +9,10 @@
     </div>
     <ng-container *ngFor="let Experiencia of experiencia">
         <div class="row">
-            <div class="col-md-1 text-end"><img src="../../../assets/portafolio.png" class="img-fluid w-50" alt=""></div>
-            <div class="col-md-9">
+            <div class=" col-2 col-md-1 text-end invisible-izq"  id="icono">
+                <img src="../../../assets/portafolio.png" class="img-fluid custom-width" alt="">
+            </div>
+            <div class="col-8 col-md-9 invisible-derecha" id="experiencia">
                 <p class="h3"> {{Experiencia.Periodo}} {{Experiencia.Puesto}} </p>
             </div>
             <div class="col-md-2" *ngIf="isLogged">
