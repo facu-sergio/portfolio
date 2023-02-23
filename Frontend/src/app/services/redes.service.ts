@@ -12,8 +12,8 @@ export class RedesService {
 
   //url:string = "https://localhost:44311/api/Redes";
   url:string = "https://facundoportafolio.bsite.net/api/Redes";
-  getRed(){
-    return this.http.get(this.url);
+  public getRed() : Observable<Redes[]>{
+    return this.http.get<Redes[]>(this.url);
   }
 
   addRed(red:Redes):Observable<Redes>{

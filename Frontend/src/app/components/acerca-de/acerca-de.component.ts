@@ -23,10 +23,8 @@ export class AcercaDeComponent implements OnInit {
 
   ngAfterViewInit(){
     let imagenPersona = this.el.nativeElement.querySelector('#imagenPersona');
-    let nombrePersona =  this.el.nativeElement.querySelector('#nombrePersona');
     let acercaDe = this.el.nativeElement.querySelector('#acercaDe');
     this.animation.observer.observe(imagenPersona);
-    this.animation.observer.observe(nombrePersona);
     this.animation.observer.observe(acercaDe);
   }
 

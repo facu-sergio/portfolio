@@ -1,10 +1,10 @@
 export class Redes{
-    nombre:string;
-    link:string;
+    Nombre:string;
+    Link:string;
 
     constructor(nombre:string,link:string){
-        this.nombre = nombre;
-        this.link = link;
+        this.Nombre = nombre;
+        this.Link = link;
     }
 }
 
