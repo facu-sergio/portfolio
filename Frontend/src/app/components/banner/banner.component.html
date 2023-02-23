@@ -10,7 +10,11 @@
 
 
 <div class="contenedor">
-    <img  srcset="../../../assets/banermovil.jpg 576w, ../../../assets/baner7.jpg 1200w" alt="texto_alternativo" id="banner" class="rounded" >
+    
+    <picture>
+        <source media="(min-width: 768px)" srcset="../../../assets/baner7.jpg" id="banner">
+        <img src="../../../assets/banermovil.jpg " alt="Imagen para dispositivos móviles" id="banner">
+      </picture>
     <div class="texto-encima ">
       <p class="text-start">Bienvenido a mi portfolio</p>
     </div>
