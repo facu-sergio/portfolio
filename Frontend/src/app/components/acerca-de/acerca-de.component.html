@@ -1,10 +1,10 @@
 <div class="row pt-2" *ngIf="persona.length>0">
-    <div class="col-11 col-xl-2 col-lg-3 col-md-3   col-sm-6 invisible-izq " id="imagenPersona">
-        <img class="img-fluid  w-75  rounded-circle  mx-auto d-block" [src]="'data:image/png;base64,'+ persona[0].Imagen"  >
+    <div class="col-11 col-xl-2 col-lg-3 col-md-3   col-sm-6 invisible-izq  " id="imagenPersona">
+        <img class="img-fluid   rounded-circle  mx-auto d-block" [src]="'data:image/png;base64,'+ persona[0].Imagen" id="imgPerfil">
     </div>
-    <div class="col-10 col-xl9 col-lg-7 col-md-6  mt-xl-4 text-start invisible-derecha" id="acercaDe">
-        <p class="h4 text-warning ">Acerca de mí</p>
-        <p class="h5 ">{{persona[0].Descripcion}}</p>
+    <div class="col-10 col-xl9 col-lg-7 col-md-6  mt-xl-4  invisible-derecha text-center acerca" id="acercaDe">
+        <p class="h2 text-warning ">Acerca de mí</p>
+        <p class="f5 text-center ">{{persona[0].Descripcion}}</p>
     </div>
     <div class="col-11 col-xl-1 col-lg-1 col-md-1" *ngIf="isLogged">
         <a class="btn btn-success" href="editarInfoPersonal/{{persona[0].Id}}" >Editar</a>

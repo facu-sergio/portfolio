@@ -1,11 +1,21 @@
 
-@media (max-width:1200px){
- p{
-    text-align: center;
- }
+.acerca{
+    padding-left: 40px;
 }
 
-.row{
-    padding-left: 20px;
+#imgPerfil{
+    width: 45%;
 }
 
+@media (min-width: 577px) {
+    #imgPerfil{
+        width: 75%;
+    }
+  }
+  
+  @media (min-width:1200px){
+    #imgPerfil{
+        width: 90%;
+        margin-left: 300px;
+    }
+  }
