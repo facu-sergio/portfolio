@@ -31,7 +31,7 @@
 
 .texto-encima {
   position: absolute;
-  top: 33%;
+  top: 12%;
   left: 8rem;
   transform: translate(-50%, -50%);
   text-align: right;
@@ -49,21 +49,21 @@
 .github{
   position: absolute;
   top:85%;
-  left: 5.7rem;
+  left: 3.8rem;
   transform: translate(-50%, -50%);
   width: 1.8rem;
 }
 .facebook{
   position: absolute;
   top:85%;
-  left: 2.2rem;
+  left: 1.3rem;
   transform: translate(-50%, -50%);
   width: 1.8rem;
 }
 .linkedin{
   position: absolute;
   top:85%;
-  left: 8rem;
+  left: 6rem;
   transform: translate(-50%, -50%);
   width: 1.8rem;
 }
@@ -82,14 +82,14 @@
   .texto-encima{
     position: absolute;
     top:17%;
-    left:41rem;
+    left:47rem;
     font-size: 3rem;
   }
 
   .texto-encima2{
     position: absolute;
     top:25rem;
-    left:520px;
+    left:37rem;
     font-size: 2rem;
   }
 

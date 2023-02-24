@@ -1,5 +1,5 @@
 <div class="row mt-4 ">
-    <div class="col-md-8 offset-md-4 text-warning"><p class="h1 ">Educación <img src="../../../assets/study2.png" width="70" height="70"></p>
+    <div class="col-md-8 offset-md-4 text-warning"><h1 class="text-ligth">Educación <img src="../../../assets/study2.png" width="70" height="70"></h1>
     <a class="btn btn-success" href="/nuevaFormacion" *ngIf="isLogged">agregar</a>
     </div>
     
@@ -10,7 +10,7 @@
             <img src="../../../assets/title2.png " alt="" class="img fluid custom-width">
         </div>
         <div class="col-8 col-md-9 invisible-derecha " id="estudio">
-            <p class="h3"> {{estudio.Age}} {{estudio.Titulo}} ({{estudio.Institucion}}) </p>
+            <p class="text-ligth"> ({{estudio.Age}}) {{estudio.Titulo}} ({{estudio.Institucion}}) </p>
         </div>
         <div class="col-md-2 "*ngIf="isLogged">
             <a class="btn btn-success"  href="/editarFormacion/{{estudio.Id}}" >Editar</a>
