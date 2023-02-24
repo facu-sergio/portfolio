@@ -31,38 +31,43 @@
 
 .texto-encima {
   position: absolute;
-  top: 12%;
-  left: 8rem;
+  top: 17%;
+  left: 13.8rem;
   transform: translate(-50%, -50%);
   text-align: right;
   color: white;
+  width: 100%;
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
 }
 .texto-encima2 {
   position: absolute;
-  top:70%;
-  left: 7rem;
+  top:71%;
+  left: 7.6rem;
   transform: translate(-50%, -50%);
   text-align: right;
   color: white;
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
 }
 
 .github{
   position: absolute;
-  top:85%;
+  top:87%;
   left: 3.8rem;
   transform: translate(-50%, -50%);
   width: 1.8rem;
 }
 .facebook{
   position: absolute;
-  top:85%;
+  top:87%;
   left: 1.3rem;
   transform: translate(-50%, -50%);
   width: 1.8rem;
 }
 .linkedin{
   position: absolute;
-  top:85%;
+  top:87%;
   left: 6rem;
   transform: translate(-50%, -50%);
   width: 1.8rem;
@@ -82,36 +87,36 @@
   .texto-encima{
     position: absolute;
     top:17%;
-    left:47rem;
-    font-size: 3rem;
+    left:85.5rem;
+    font-size: 1.5rem;
   }
 
   .texto-encima2{
     position: absolute;
     top:25rem;
-    left:37rem;
-    font-size: 2rem;
+    left:42rem;
+    font-size: 1.5rem;
   }
 
 
   .github{
     position: absolute;
     top:32.2rem;
-    left: 33.5rem;
+    left: 34.5rem;
     transform: translate(-50%, -50%);
     width: 4rem;
   }
   .facebook{
     position: absolute;
     top:16.1rem;
-    left: 13.5rem;
+    left: 14.3rem;
     transform: translate(-50%, -50%);
     width: 4rem;
   }
   .linkedin{
     position: absolute;
     top:32.2rem;
-    left: 29.2rem;
+    left: 30.5rem;
     transform: translate(-50%, -50%);
     width: 4rem;
   }

@@ -27,13 +27,13 @@ body{
 
 p{
     font-family: 'Poppins', sans-serif;
-    font-size:  90%;
+    font-size:  105%;
 }
 
 h1{
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size:  115%;
+    font-size:  135%;
 }
 
 @media (min-width: 577px) {
@@ -52,5 +52,6 @@ h1{
     h1{
         font-family: 'Poppins', sans-serif;
         font-weight: 600;
+        font-size: 210%;
     }
 }
