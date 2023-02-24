@@ -53,21 +53,21 @@
 
 .github{
   position: absolute;
-  top:87%;
+  top:89%;
   left: 3.8rem;
   transform: translate(-50%, -50%);
   width: 1.8rem;
 }
 .facebook{
   position: absolute;
-  top:87%;
+  top:89%;
   left: 1.3rem;
   transform: translate(-50%, -50%);
   width: 1.8rem;
 }
 .linkedin{
   position: absolute;
-  top:87%;
+  top:89%;
   left: 6rem;
   transform: translate(-50%, -50%);
   width: 1.8rem;
@@ -102,21 +102,21 @@
   .github{
     position: absolute;
     top:32.2rem;
-    left: 34.5rem;
+    left: 36.2rem;
     transform: translate(-50%, -50%);
     width: 4rem;
   }
   .facebook{
     position: absolute;
     top:16.1rem;
-    left: 14.3rem;
+    left: 15rem;
     transform: translate(-50%, -50%);
     width: 4rem;
   }
   .linkedin{
     position: absolute;
     top:32.2rem;
-    left: 30.5rem;
+    left: 32rem;
     transform: translate(-50%, -50%);
     width: 4rem;
   }
