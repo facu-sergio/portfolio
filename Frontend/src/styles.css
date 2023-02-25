@@ -13,11 +13,11 @@ body{
 }
 .invisible-izq{
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-7%);
 }
 .invisible-derecha{
     opacity: 0;
-    transform: translateX(75px);
+    transform: translateX(10%);
 }
 .visible{
     opacity: 1;
