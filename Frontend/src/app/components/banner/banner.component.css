@@ -32,7 +32,7 @@
 .texto-encima {
   position: absolute;
   top: 17%;
-  left: 13rem;
+  margin-left: 53%;
   transform: translate(-50%, -50%);
   text-align: right;
   color: white;
@@ -54,21 +54,21 @@
 .github{
   position: absolute;
   top:89%;
-  left: 3.8rem;
+  left: 15%;
   transform: translate(-50%, -50%);
   width: 1.8rem;
 }
 .facebook{
   position: absolute;
   top:89%;
-  left: 1.3rem;
+  left: 10%;
   transform: translate(-50%, -50%);
   width: 1.8rem;
 }
 .linkedin{
   position: absolute;
   top:89%;
-  left: 6rem;
+  left: 23%;
   transform: translate(-50%, -50%);
   width: 1.8rem;
 }
