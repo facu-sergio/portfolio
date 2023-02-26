@@ -10,12 +10,25 @@
     margin-top: 10px;
 }
 
+.zoom{
+    transform: scale(1.2);
+    opacity: 1;
+}
 
-
+.ocultar{
+    opacity: 0;
+}
+.normalizarZoom{
+    opacity: 1;
+    transform: scale(1);
+}
 @media (min-width:768px) {
     .imgProject{
-        width: 49%;
+        width: 100%;
         margin-top: 0px;
+    }
+    .zoom{
+        transform: scale(1.5);
     }
 }
 

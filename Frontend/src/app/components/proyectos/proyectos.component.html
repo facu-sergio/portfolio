@@ -15,8 +15,11 @@
         <a href="{{proyecto.Web}}" class="btn btn-primary" target="_blank">Link web</a>
         <a href="{{proyecto.Link}}" class="btn btn-primary ms-2" target="_blank">Link repositorio</a>
     </div>
-    <div class="col-12 col-lg-8 col-md-3   invisible-izq proyecto" id="imagenesProyecto">
+    <div class="col-12 col-lg-4 col-md-3   invisible-izq proyecto" id="imagenesProyecto">
         <img  class="imgProject rounded  me-2 zoomimg " (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()"  [src]="'data:image/png;base64,'+ proyecto.Imagen"  >
+         
+    </div>
+    <div class="col-12 col-lg-4 col-md-3   invisible-izq proyecto" id="imagenesProyecto">
         <img  class="rounded imgProject me-2 zoomimg " (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()" [src]="'data:image/png;base64,'+ proyecto.Imagen2"  >
     </div>
   

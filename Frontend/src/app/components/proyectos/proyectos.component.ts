@@ -39,14 +39,17 @@ export class ProyectosComponent implements OnInit {
   }
 
   hacerZoom(evento: MouseEvent) {
-    const imagen = evento.currentTarget;
-    this.renderer.setStyle(imagen, 'transform', 'scale(1.5)');
-    this.renderer.setStyle(imagen, 'opacity', '1');
-    
+    const imagen = evento.currentTarget as HTMLElement;
+    /*this.renderer.setStyle(imagen, 'transform', 'scale(1.5)');
+    this.renderer.setStyle(imagen, 'opacity', '1');*/
+    imagen.classList.remove('normalizarZoom')
+    imagen.classList.add('zoom');
     const imagenes = this.el.nativeElement.querySelectorAll('.zoomimg');
     for (let i = 0; i < imagenes.length; i++) {
       if (imagenes[i] !== imagen) {
-        this.renderer.setStyle(imagenes[i], 'opacity', '0');
+       /* this.renderer.setStyle(imagenes[i], 'opacity', '0');*/
+       imagenes[i].classList.remove('normalizarZoom')
+       imagenes[i].classList.add('ocultar');
       }
     }
   }
@@ -54,8 +57,11 @@ export class ProyectosComponent implements OnInit {
   restaurarImagenes() {
     const imagenes = this.el.nativeElement.querySelectorAll('.zoomimg');
     for (let i = 0; i < imagenes.length; i++) {
-      this.renderer.setStyle(imagenes[i], 'transform', 'scale(1)');
-      this.renderer.setStyle(imagenes[i], 'opacity', '1');
+      /*this.renderer.setStyle(imagenes[i], 'transform', 'scale(1)');
+      this.renderer.setStyle(imagenes[i], 'opacity', '1');*/
+      imagenes[i].classList.remove('zoom');
+      imagenes[i].classList.remove('ocultar');
+      imagenes[i].classList.add('normalizarZoom')
     }
   }
   
