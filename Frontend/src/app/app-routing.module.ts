@@ -16,7 +16,7 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {path:'home', component:HomeComponent},
+  {path:'', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'nuevaexp', component:NewExperienciaComponent, canActivate: [AuthGuard]},
   {path:'editexp/:id', component:EditExperienciaComponent, canActivate: [AuthGuard]},
