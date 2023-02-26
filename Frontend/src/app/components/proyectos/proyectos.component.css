@@ -22,9 +22,13 @@
     opacity: 1;
     transform: scale(1);
 }
+
+.desc{
+ font-size: 105%;
+}
 @media (min-width:768px) {
     .imgProject{
-        width: 100%;
+        width: 49%;
         margin-top: 0px;
     }
     .zoom{
