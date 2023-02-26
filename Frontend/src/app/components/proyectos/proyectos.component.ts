@@ -19,6 +19,7 @@ export class ProyectosComponent implements OnInit {
     this.isLogged =  this.authService.isAuth();
     this.getProyectos();
     console.log(this.proyectos)
+    
   }
   ngAfterViewInit(){
     const divProyecto =  this.el.nativeElement.querySelectorAll('#datosProyecto')
@@ -31,13 +32,41 @@ export class ProyectosComponent implements OnInit {
     divProyecto.forEach((proyecto:any) => {
       this.observer.observe(proyecto);
     });
+
+
+    
+    
   }
+
+  hacerZoom(evento: MouseEvent) {
+    const imagen = evento.currentTarget;
+    this.renderer.setStyle(imagen, 'transform', 'scale(1.5)');
+    this.renderer.setStyle(imagen, 'opacity', '1');
+    
+    const imagenes = this.el.nativeElement.querySelectorAll('.zoomimg');
+    for (let i = 0; i < imagenes.length; i++) {
+      if (imagenes[i] !== imagen) {
+        this.renderer.setStyle(imagenes[i], 'opacity', '0');
+      }
+    }
+  }
+
+  restaurarImagenes() {
+    const imagenes = this.el.nativeElement.querySelectorAll('.zoomimg');
+    for (let i = 0; i < imagenes.length; i++) {
+      this.renderer.setStyle(imagenes[i], 'transform', 'scale(1)');
+      this.renderer.setStyle(imagenes[i], 'opacity', '1');
+    }
+  }
+  
+
   getProyectos(){
     this.proyectoService.getProyectos().subscribe(data =>{
       data.forEach(proyecto => {
         this.proyectos.push(proyecto)
       });
     })
+    
   }
 
   deleteProject(id:number){
@@ -49,7 +78,6 @@ export class ProyectosComponent implements OnInit {
     })
   }
   
-
  cargarImagen =  (entradas:any,observer:IntersectionObserver)=>{
     entradas.forEach((entrada:any) => {
       if(entrada.isIntersecting){
@@ -67,5 +95,4 @@ export class ProyectosComponent implements OnInit {
     rootMargin: '0px 0px 0px 0px',
     threshold: 0.9
   });
-  
 }

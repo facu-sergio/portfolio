@@ -8,19 +8,18 @@
         <button class="btn btn-success" routerLink="/nuevoProyecto"  *ngIf="isLogged">Nuevo Proyecto</button>
     </div>
 </div>
-<div  class="row mt-3  " *ngFor="let proyecto of proyectos" >
-    <div class="col-12 col-lg-4 col-md-6 invisible-izq" id="datosProyecto">
+<div  class="row mt-3 " *ngFor="let proyecto of proyectos" >
+    <div class="col-12 col-lg-3 col-md-6 invisible-izq" id="datosProyecto">
         <p class="text-warning">{{proyecto.Nombre}}</p>
         <p class="text-ligth">{{proyecto.Descripcion}}</p>
         <a href="{{proyecto.Web}}" class="btn btn-primary" target="_blank">Link web</a>
         <a href="{{proyecto.Link}}" class="btn btn-primary ms-2" target="_blank">Link repositorio</a>
     </div>
-    <div class="col-12 col-lg-4 col-md-3  mt-2  invisible-izq zoomimg" id="imagenesProyecto">
-        <img  class="rounded imgProject " [src]="'data:image/png;base64,'+ proyecto.Imagen"  >
+    <div class="col-12 col-lg-8 col-md-3   invisible-izq proyecto" id="imagenesProyecto">
+        <img  class="imgProject rounded  me-2 zoomimg " (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()"  [src]="'data:image/png;base64,'+ proyecto.Imagen"  >
+        <img  class="rounded imgProject me-2 zoomimg " (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()" [src]="'data:image/png;base64,'+ proyecto.Imagen2"  >
     </div>
-    <div class="col-12 col-lg-4 col-md-3  mt-2 invisible-izq zoomimg" id="imagenesProyecto">
-        <img  class="rounded imgProject " [src]="'data:image/png;base64,'+ proyecto.Imagen2"  >
-    </div>
+  
     <div class="col-lg-2 col-md-3" *ngIf="isLogged">
         <button class="btn btn-success me-2" routerLink="/editproyecto/{{proyecto.Id}}" >Editar</button>
         <button class="btn btn-danger" (click)="deleteProject(proyecto.Id) " >Borrar</button>
