@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/models/proyecto';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProyectoService } from 'src/app/services/proyecto.service';
@@ -83,7 +82,6 @@ export class ProyectosComponent implements OnInit {
  cargarImagen =  (entradas:any,observer:IntersectionObserver)=>{
     entradas.forEach((entrada:any) => {
       if(entrada.isIntersecting){
-        console.log('holi')
         //entrada.target.classList.remove('invisible-izq')
         entrada.target.classList.add('visible')
       }else{

@@ -37,12 +37,5 @@ export class SocialComponent implements OnInit {
      })
   }
 
-  login(){
-    this.router.navigate(['/login']);
-  }
-
-  logOut(){
-    localStorage.removeItem('token');
-    window.location.reload();
-  }
+  
 }

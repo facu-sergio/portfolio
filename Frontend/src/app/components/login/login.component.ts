@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.authService.singin(this.user).subscribe( (res:any) =>{
       //localStorage.removeItem('token');
       localStorage.setItem('token', res);
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
     })
   }
 }

@@ -55,7 +55,6 @@ export class HysComponent implements OnInit {
   cargarImagen =  (entradas:any,observer:IntersectionObserver)=>{
     entradas.forEach((entrada:any) => {
       if(entrada.isIntersecting){
-        console.log('holi')
         //entrada.target.classList.remove('invisible-izq')
         entrada.target.classList.add('visible')
       }else{
