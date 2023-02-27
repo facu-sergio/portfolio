@@ -22,7 +22,7 @@ export class AnimationService {
   }
   observer =  new IntersectionObserver(this.cargarImagen,{
     root: null,
-    rootMargin: '0px 0px 0px 0px',
+    rootMargin: '0px 126px 0px 0px',
     threshold: 0.9
   });
 }
