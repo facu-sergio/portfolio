@@ -12,7 +12,8 @@ export class AnimationService {
       if(entrada.isIntersecting){
         console.log('holi')
         //entrada.target.classList.remove('invisible-izq')
-        entrada.target.classList.add('visible')
+        entrada.target.classList.add('visible');
+        
       }else{
         //entrada.target.classList.add('invisible-izq')
         entrada.target.classList.remove('visible')
@@ -21,7 +22,7 @@ export class AnimationService {
   }
   observer =  new IntersectionObserver(this.cargarImagen,{
     root: null,
-    rootMargin: '0px 0px 80px 0px',
-    threshold: 0.9
+    rootMargin: '0px 0px 0px 0px',
+    threshold: 1.0
   });
 }

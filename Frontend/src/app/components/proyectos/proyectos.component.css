@@ -19,7 +19,6 @@
     opacity: 0;
 }
 .normalizarZoom{
-    opacity: 1;
     transform: scale(1);
 }
 

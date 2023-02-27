@@ -32,10 +32,6 @@ export class ProyectosComponent implements OnInit {
     divProyecto.forEach((proyecto:any) => {
       this.observer.observe(proyecto);
     });
-
-
-    
-    
   }
 
   hacerZoom(evento: MouseEvent) {
