@@ -10,8 +10,8 @@ export class RedesService {
 
   constructor(private http:HttpClient) {}
 
-  url:string = "https://localhost:44311/api/Redes";
-  //url:string = "https://facundoportafolio.bsite.net/api/Redes";
+  //url:string = "https://localhost:44311/api/Redes";
+  url:string = "https://facundoportafolio.bsite.net/api/Redes";
   public getRed() : Observable<Redes[]>{
     return this.http.get<Redes[]>(this.url);
   }

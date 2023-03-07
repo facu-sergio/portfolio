@@ -7,8 +7,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class AuthService {
-  private URL = 'https://localhost:44311'
-  //private URL:string = "https://facundoportafolio.bsite.net";
+  //private URL = 'https://localhost:44311'
+  private URL:string = "https://facundoportafolio.bsite.net";
   constructor(
     private http:HttpClient,
     private jwtHelper:JwtHelperService,
