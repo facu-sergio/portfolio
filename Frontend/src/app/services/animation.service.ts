@@ -22,6 +22,6 @@ export class AnimationService {
   observer =  new IntersectionObserver(this.cargarImagen,{
     root: null,
     rootMargin: '0px',
-    threshold: 0.25,
+    threshold: 0.30,
   });
 }

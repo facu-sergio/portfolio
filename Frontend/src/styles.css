@@ -21,7 +21,7 @@ body{
 }
 .visible{
     opacity: 1;
-    transition: .4s ease-in-out all;
+    transition: .5s ease-in-out all;
     transform: scale(1) translateX(0%);
 }
 
