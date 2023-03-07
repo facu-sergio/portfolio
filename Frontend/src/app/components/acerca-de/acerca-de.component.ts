@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { LoaderInterceptor } from 'src/app/interceptors/interceptors/http-interceptor.interceptor';
 import { Persona } from 'src/app/models/persona';
 import { AnimationService } from 'src/app/services/animation.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -12,7 +13,7 @@ import { PersonaService } from 'src/app/services/persona.service';
 export class AcercaDeComponent implements OnInit {
   persona:Persona[]=[];
   isLogged:boolean = false;
-  constructor(private personaService:PersonaService,private authService:AuthService,private el:ElementRef,private animation:AnimationService){
+  constructor( private personaService:PersonaService,private authService:AuthService,private el:ElementRef,private animation:AnimationService){
 
   }
 

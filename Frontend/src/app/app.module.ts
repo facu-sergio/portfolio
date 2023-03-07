@@ -33,6 +33,10 @@ import { EditProyectoComponent } from './components/proyectos/edit-proyecto.comp
 import { NewEducacionComponent } from './components/educacion/new-educacion.component';
 import { EditEducacionComponent } from './components/educacion/edit-educacion.component';
 import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+
+import { LoaderInterceptor } from './interceptors/interceptors/http-interceptor.interceptor';
+
 
 
 
@@ -62,6 +66,8 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.com
     
 
     
+
+    
     
   ],
   imports: [
@@ -70,13 +76,23 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.com
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    NgxUiLoaderModule.forRoot({
+      bgsColor: 'red',
+      bgsPosition: 'bottom-right',
+      bgsSize: 40,
+      bgsType: 'ball-spin-clockwise',
+      fgsType: 'three-bounce',
+      pbDirection: 'ltr',
+      pbThickness: 5,
+    })
   ],
   providers: [
     //jwt
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService,
     //token interceptor
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
