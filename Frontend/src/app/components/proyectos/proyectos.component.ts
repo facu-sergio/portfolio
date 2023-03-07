@@ -18,13 +18,10 @@ export class ProyectosComponent implements OnInit {
   ngOnInit(): void {
     this.isLogged =  this.authService.isAuth();
     this.getProyectos();
-    console.log(this.proyectos)
-    
   }
   ngAfterViewInit(){
-    const divProyecto =  this.el.nativeElement.querySelectorAll('#datosProyecto')
-    const imagenesProyecto =  this.el.nativeElement.querySelectorAll('#imagenesProyecto')
-    console.log(divProyecto)
+    const divProyecto =  this.el.nativeElement.querySelectorAll('.datosProyecto')
+    const imagenesProyecto =  this.el.nativeElement.querySelectorAll('.imagenesProyecto')
     imagenesProyecto.forEach((imagen:any) => {
       this.animation.observer.observe(imagen);
     });

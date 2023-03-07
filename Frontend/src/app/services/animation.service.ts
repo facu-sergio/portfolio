@@ -20,8 +20,7 @@ export class AnimationService {
     });
   }
   observer =  new IntersectionObserver(this.cargarImagen,{
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5,
+    rootMargin: '50px',
+    threshold: 0.75
   });
 }

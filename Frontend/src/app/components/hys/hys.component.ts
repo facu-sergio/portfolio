@@ -22,15 +22,15 @@ export class HysComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    const nombreSkill =  this.el.nativeElement.querySelectorAll('#nombreSkill')
-    const imgSkill =  this.el.nativeElement.querySelectorAll('#imgSkill')
+    const nombreSkill =  this.el.nativeElement.querySelectorAll('.nombreSkill')
+    const imgSkill =  this.el.nativeElement.querySelectorAll('.imgSkill')
     
     imgSkill.forEach((imagen:any) => {
       this.animation.observer.observe(imagen);
     });
 
-    nombreSkill.forEach((proyecto:any) => {
-      this.animation.observer.observe(proyecto);
+    nombreSkill.forEach((nombre:any) => {
+      this.animation.observer.observe(nombre);
     });
   }
 
