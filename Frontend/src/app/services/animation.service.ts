@@ -12,10 +12,7 @@ export class AnimationService {
       if(entrada.isIntersecting){
         setTimeout(() => {
           entrada.target.classList.add('visible');
-        }, 150);
-
-        
-        
+        }, 170); 
       }else{
 
         entrada.target.classList.remove('visible')
@@ -25,6 +22,6 @@ export class AnimationService {
   observer =  new IntersectionObserver(this.cargarImagen,{
     root: null,
     rootMargin: '0px',
-    threshold: 0.30,
+    threshold: 0.89,
   });
 }
