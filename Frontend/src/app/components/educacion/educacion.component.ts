@@ -34,7 +34,7 @@ export class EducacionComponent implements OnInit {
     this.formacionService.getFormacion().subscribe(data=>{
       this.estudios=data;
     },err=>{
-      alert('fallo')
+      alert('fallo al traer estudios')
     })
     if(this.authService.isAuth()){
       this.isLogged=true;

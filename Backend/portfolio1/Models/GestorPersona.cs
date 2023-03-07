@@ -34,8 +34,9 @@ namespace portfolio1.Models
                     int numero = dr.GetInt32(8);
                     int telefono = dr.GetInt32(9);
                     string descripcion = dr.GetString(10);
-                    string foto = dr.GetString(11);
-                    Persona persona = new Persona(dni,nombre,apellido,edad,provincia,localidad,calle,numero,telefono,descripcion,foto);
+                    string oficio = dr.GetString(11);
+                    string foto = dr.GetString(12);
+                    Persona persona = new Persona(dni,nombre,apellido,edad,provincia,localidad,calle,numero,telefono,descripcion,oficio,foto);
                     lista.Add(persona);
                 }
                 dr.Close();
@@ -64,6 +65,7 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@numero", persona.Numero);
                 cmd.Parameters.AddWithValue("@telefono", persona.Telefono);
                 cmd.Parameters.AddWithValue("@descripcion", persona.Descripcion);
+                cmd.Parameters.AddWithValue("@oficio", persona.Oficio);
                 cmd.Parameters.AddWithValue("@foto", persona.Foto);
 
                 try
@@ -110,6 +112,7 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@numero", persona.Numero);
                 cmd.Parameters.AddWithValue("@telefono", persona.Telefono);
                 cmd.Parameters.AddWithValue("@descripcion", persona.Descripcion);
+                cmd.Parameters.AddWithValue("@descripcion", persona.Oficio);
                 cmd.Parameters.AddWithValue("@foto", persona.Foto);
 
                 try

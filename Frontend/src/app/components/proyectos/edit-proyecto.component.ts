@@ -66,7 +66,7 @@ export class EditProyectoComponent implements OnInit {
       alert('Proyecto Actualizado');
       this.router.navigate(['/home']);
     }, err => {
-      alert('fallo');
+      alert('fallo al actualizar proyecto');
       this.router.navigate(['/home']);
     })
   }

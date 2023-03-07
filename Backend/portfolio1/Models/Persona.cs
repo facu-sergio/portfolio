@@ -18,6 +18,9 @@ namespace portfolio1.Models
         private int _numero;
         private int _telefono;
         private string _descripcion;
+        private string _oficio;
+
+
         private string _foto;
 
         public Persona()
@@ -25,7 +28,7 @@ namespace portfolio1.Models
 
         }
 
-        public Persona(int dni, string nombre, string apellido, int edad, string provincia, string localidad, string calle, int numero, int telefono,string descripcion, string foto)
+        public Persona(int dni, string nombre, string apellido, int edad, string provincia, string localidad, string calle, int numero, int telefono,string descripcion,string oficio, string foto)
         {
             _dni = dni;
             _nombre = nombre;
@@ -37,6 +40,7 @@ namespace portfolio1.Models
             _numero = numero;
             _telefono = telefono;
             _descripcion = descripcion;
+            _oficio = oficio;
             _foto = foto;
         }
 
@@ -101,6 +105,11 @@ namespace portfolio1.Models
         {
             get { return _descripcion; }
             set { _descripcion = value; }
+        }
+        public string Oficio
+        {
+            get { return _oficio; }
+            set { _oficio = value; }
         }
         public string Foto
         {

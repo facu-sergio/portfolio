@@ -60,7 +60,7 @@ this.http.post("https://facundoportafolio.bsite.net/api/File",filedata2).subscri
       alert('proyecto guardado');
       this.router.navigate(['home']);
     },err=>{
-      alert('fallo');
+      alert('fallo al guarda archivo');
     })
   }
       onSelectedFile(e:any){

@@ -24,7 +24,7 @@ export class NewEducacionComponent implements OnInit {
       alert('Estudio guardado');
       this.router.navigate(['home']);
     },err=>{
-      alert('fallo')
+      alert('fallo al agregar estudio')
     })
   }
 }

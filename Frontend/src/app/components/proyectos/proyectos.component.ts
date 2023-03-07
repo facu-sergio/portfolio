@@ -75,7 +75,7 @@ export class ProyectosComponent implements OnInit {
       alert('proyecto eliminado')
       window.location.reload();
     },err=>{
-      alert('fallo');
+      alert('fallo al eliminar proyecto');
     })
   }
   
