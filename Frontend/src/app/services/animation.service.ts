@@ -10,11 +10,14 @@ export class AnimationService {
   cargarImagen =  (entradas:any,observer:IntersectionObserver)=>{
     entradas.forEach((entrada:any) => {
       if(entrada.isIntersecting){
-        entrada.target.classList.remove('invisible-izq')
-        entrada.target.classList.add('visible');
+        setTimeout(() => {
+          entrada.target.classList.add('visible');
+        }, 150);
+
+        
         
       }else{
-        entrada.target.classList.add('invisible-izq')
+
         entrada.target.classList.remove('visible')
       }
     });
