@@ -8,6 +8,7 @@ namespace portfolio1.Models
 {
     public class Persona
     {
+        private int _id;
         private int _dni;
         private string _nombre;
         private string _apellido;
@@ -19,6 +20,8 @@ namespace portfolio1.Models
         private int _telefono;
         private string _descripcion;
         private string _oficio;
+        private string _imagen;
+
 
 
         private string _foto;
@@ -28,8 +31,9 @@ namespace portfolio1.Models
 
         }
 
-        public Persona(int dni, string nombre, string apellido, int edad, string provincia, string localidad, string calle, int numero, int telefono,string descripcion,string oficio, string foto)
+        public Persona(int id, int dni, string nombre, string apellido, int edad, string provincia, string localidad, string calle, int numero, int telefono, string descripcion, string oficio,string imagen, string foto)
         {
+            _id = id;
             _dni = dni;
             _nombre = nombre;
             _apellido = apellido;
@@ -41,7 +45,14 @@ namespace portfolio1.Models
             _telefono = telefono;
             _descripcion = descripcion;
             _oficio = oficio;
+            _imagen = imagen;
             _foto = foto;
+        }
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
 
         public int Dni
@@ -63,7 +74,7 @@ namespace portfolio1.Models
             set { _apellido = value; }
         }
 
-           
+
         public int Edad
         {
             get { return _edad; }
@@ -111,6 +122,14 @@ namespace portfolio1.Models
             get { return _oficio; }
             set { _oficio = value; }
         }
+
+
+        public string Imagen
+        {
+            get { return _imagen; }
+            set { _imagen = value; }
+        }
+
         public string Foto
         {
             get { return _foto; }

@@ -50,10 +50,10 @@ export class EditHysComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.skillService.updateSkill(id, this.skill).subscribe(data =>{
       alert('Skill actualizada');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     }, err=>{
       alert('Error');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     })
   }
   onPhotoSelected(event:any): void{

@@ -45,9 +45,9 @@ export class EditAcercaDeComponent implements OnInit {
     }
     this.personaService.updatePersona(this.persona[0].Id,this.persona[0]).subscribe(data=>{
       alert('Datos pesonales actualizados correctamente'),
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     },err=>{
-      alert(err)
+      alert('fallo al actualizar datos personales')
     })
   }
   onPhotoSelected(event:any): void{

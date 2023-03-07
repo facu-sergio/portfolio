@@ -13,7 +13,7 @@
             <p class="text-ligth"> ({{estudio.Age}}) {{estudio.Titulo}} ({{estudio.Institucion}}) </p>
         </div>
         <div class="col-md-2 "*ngIf="isLogged">
-            <a class="btn btn-success"  href="/editarFormacion/{{estudio.Id}}" >Editar</a>
+            <button class="btn btn-success"   routerLink="/editarFormacion/{{estudio.Id}}">Editar</button>
             <button class="btn btn-warning ms-2"  (click)="deleteEstudio(estudio.Id)">Borrar</button>
         </div>
         

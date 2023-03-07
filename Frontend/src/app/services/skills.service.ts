@@ -7,10 +7,10 @@ import { Skills } from '../models/skills';
   providedIn: 'root'
 })
 export class SkillsService {
-  //skillUrl:string = "https://localhost:44311/api/Skills";
-  //fileUrl:string = "https://localhost:44311/api/File";
-  skillUrl:string = "https://facundoportafolio.bsite.net/api/Skills";
-  fileUrl:string = "https://facundoportafolio.bsite.net/api/File";
+  skillUrl:string = "https://localhost:44311/api/Skills";
+  fileUrl:string = "https://localhost:44311/api/File";
+  //skillUrl:string = "https://facundoportafolio.bsite.net/api/Skills";
+  //fileUrl:string = "https://facundoportafolio.bsite.net/api/File";
   constructor(private httpClient:HttpClient) { }
   
   public getSkills() : Observable<Skills[]>{

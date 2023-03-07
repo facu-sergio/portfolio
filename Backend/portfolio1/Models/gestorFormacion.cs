@@ -24,17 +24,47 @@ namespace portfolio1.Models
 
                 while (dr.Read())
                 {
+                    int id = dr.GetInt32(0);
                     string titulo = dr.GetString(1);
                     int año = dr.GetInt32(2);
                     string institucion = dr.GetString(3);
                     string desc = dr.GetString(4);
-
-                    Formacion formacion = new Formacion(titulo, año, institucion, desc);
+                    Formacion formacion = new Formacion(id,titulo,año,institucion, desc);
                     lista.Add(formacion);
                 }
                 conn.Close();
             }
             return lista;
+        }
+
+        public Formacion getEstudio(int id)
+        {
+            Formacion estudio = new Formacion();
+            string strConn = ConfigurationManager.ConnectionStrings["BDlocal"].ToString();
+            using (SqlConnection conn = new SqlConnection(strConn))
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "Formacion_get";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    estudio.Id = dr.GetInt32(0);
+                    estudio.Titulo = dr.GetString(1);
+                    estudio.Age = dr.GetInt32(2);
+                    estudio.Institucion = dr.GetString(3);
+                    estudio.Desc= dr.GetString(4);
+                }
+
+                dr.Close();
+                conn.Close();
+
+                return estudio;
+            }
         }
 
         public bool addFormacion(Formacion formacion)
@@ -49,7 +79,7 @@ namespace portfolio1.Models
                 
 
                 cmd.Parameters.AddWithValue("@titulo", formacion.Titulo);
-                cmd.Parameters.AddWithValue("@año", formacion.Año);
+                cmd.Parameters.AddWithValue("@age", formacion.Age);
                 cmd.Parameters.AddWithValue("@institucion", formacion.Institucion);
                 cmd.Parameters.AddWithValue("@descripcion", formacion.Desc);
 
@@ -85,7 +115,7 @@ namespace portfolio1.Models
 
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@titulo", formacion.Titulo);
-                cmd.Parameters.AddWithValue("@año", formacion.Año);
+                cmd.Parameters.AddWithValue("@age", formacion.Age);
                 cmd.Parameters.AddWithValue("@institucion", formacion.Institucion);
                 cmd.Parameters.AddWithValue("@descripcion", formacion.Desc);
 

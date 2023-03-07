@@ -14,8 +14,9 @@ export class Persona{
     Imagen?: string;
     Foto?:string;
 
-    constructor(id?:number,nombre?:string, apellido?:string, edad?:number,provincia?:string,localidad?:string,calle?:string,numero?:number,telefono?:number,descripcion?:string,oficio?:string,imagen?:string,foto?:string){
+    constructor(id?:number,dni?:number,nombre?:string, apellido?:string, edad?:number,provincia?:string,localidad?:string,calle?:string,numero?:number,telefono?:number,descripcion?:string,oficio?:string,imagen?:string,foto?:string){
         this.Id = id;
+        this.Dni= dni;
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.Edad = edad;

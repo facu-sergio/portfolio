@@ -22,9 +22,10 @@ namespace portfolio1.Controllers
         }
 
         // GET: api/Persona/5
-        public string Get(int id)
+        public IEnumerable<Persona> Get(int id)
         {
-            return "value";
+            GestorPersona gPersona = new GestorPersona();
+            return gPersona.getPersona();
         }
 
         // POST: api/Persona

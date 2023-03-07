@@ -10,8 +10,8 @@ export class FormacionService {
 
   constructor(private http:HttpClient) { }
 
-  //urlFormacion:string = "https://localhost:44311/api/Formacion";
-  urlFormacion:string ="https://facundoportafolio.bsite.net/api/Formacion";
+  urlFormacion:string = "https://localhost:44311/api/Formacion";
+  //urlFormacion:string ="https://facundoportafolio.bsite.net/api/Formacion";
   public getFormacion():Observable<Formacion[]>{
     return this.http.get<Formacion[]>(this.urlFormacion);
   }

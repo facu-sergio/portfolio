@@ -64,10 +64,10 @@ export class EditProyectoComponent implements OnInit {
 
     this.proyectoService.updateProyecto(this.id, this.proyecto).subscribe(res => {
       alert('Proyecto Actualizado');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     }, err => {
       alert('fallo al actualizar proyecto');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     })
   }
   onSelectedFile(e: any) {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grpc.Core;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -6,7 +7,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
-
+using System.Web.Hosting;
 
 namespace portfolio1.Models
 {
@@ -33,7 +34,11 @@ namespace portfolio1.Models
                     string foto = dr.GetString(4);
                     byte[] bytes = File.ReadAllBytes(foto);
                     string imagen = Convert.ToBase64String(bytes);
-                    Proyectos proyecto = new Proyectos(id,nombre,link,descripcion,foto,imagen);
+                    string foto2 = dr.GetString(5);
+                    byte[] bytes2 = File.ReadAllBytes(foto2);
+                    string imagen2 = Convert.ToBase64String(bytes2);
+                    string web = dr.GetString(6);
+                    Proyectos proyecto = new Proyectos(id,nombre,link,web,descripcion,foto,imagen,foto2,imagen2);
                     lista.Add(proyecto);
                 }
                 dr.Close();
@@ -65,6 +70,10 @@ namespace portfolio1.Models
                     proyecto.Foto = dr.GetString(4);
                     byte[] bytes = File.ReadAllBytes(proyecto.Foto);
                     proyecto.Imagen = Convert.ToBase64String(bytes);
+                    proyecto.Foto2 = dr.GetString(5);
+                    byte[] bytes2 = File.ReadAllBytes(proyecto.Foto2);
+                    proyecto.Imagen2 = Convert.ToBase64String(bytes2);
+                    proyecto.Web = dr.GetString(6);
                 }
 
                 dr.Close();
@@ -77,7 +86,8 @@ namespace portfolio1.Models
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
-            proyecto.Foto = "C:\\Users\\facu1\\source\\repos\\Portfolio\\Backend\\portfolio1\\uploads\\" + proyecto.Foto;
+            proyecto.Foto = HostingEnvironment.MapPath("~/uploads/") + proyecto.Foto;
+            proyecto.Foto2 = HostingEnvironment.MapPath("~/uploads/") + proyecto.Foto2;
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
@@ -88,6 +98,8 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@link", proyecto.Link);
                 cmd.Parameters.AddWithValue("@descripcion", proyecto.Descripcion);
                 cmd.Parameters.AddWithValue("@foto", proyecto.Foto);
+                cmd.Parameters.AddWithValue("@foto2", proyecto.Foto2);
+                cmd.Parameters.AddWithValue("@web", proyecto.Web);
                 try
                 {
                     conn.Open();
@@ -114,7 +126,8 @@ namespace portfolio1.Models
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
-            proyecto.Foto = "C:\\Users\\facu1\\source\\repos\\Portfolio\\Backend\\portfolio1\\uploads\\" + proyecto.Foto;
+            proyecto.Foto = HostingEnvironment.MapPath("~/uploads/") + proyecto.Foto;
+            proyecto.Foto2 = HostingEnvironment.MapPath("~/uploads/") + proyecto.Foto2;
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
@@ -124,8 +137,10 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@nombre", proyecto.Nombre);
                 cmd.Parameters.AddWithValue("@link", proyecto.Link);
+                cmd.Parameters.AddWithValue("@web", proyecto.Web);
                 cmd.Parameters.AddWithValue("@descripcion", proyecto.Descripcion);
                 cmd.Parameters.AddWithValue("@foto", proyecto.Foto);
+                cmd.Parameters.AddWithValue("@foto2", proyecto.Foto2);
                 try
                 {
                     conn.Open();

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Hosting;
 
 namespace portfolio1.Models
 {
@@ -32,8 +33,8 @@ namespace portfolio1.Models
                     string img = "";
                     byte[] bytes = File.ReadAllBytes(foto);
                     img = Convert.ToBase64String(bytes);
-                    
-                    Skills skill = new Skills(id,skillname,dominio,foto,img);
+                    string tipo = dr.GetString(4);
+                    Skills skill = new Skills(id,skillname,dominio,tipo,foto, img);
                     lista.Add(skill);
                 }
                 dr.Close();
@@ -64,6 +65,7 @@ namespace portfolio1.Models
                     skill.Foto = dr.GetString(3);
                     byte[] bytes = File.ReadAllBytes(skill.Foto);
                     skill.Imagen= Convert.ToBase64String(bytes);
+                    skill.Tipo = dr.GetString(4);
                 }
 
                 dr.Close();
@@ -77,8 +79,7 @@ namespace portfolio1.Models
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
-            //string pathTofile = HttpContext.Current.Server.MapPath()
-            skill.Foto = "C:\\Users\\facu1\\source\\repos\\Portfolio\\Backend\\portfolio1\\uploads\\" + skill.Foto;
+            skill.Foto = HostingEnvironment.MapPath("~/uploads/") + skill.Foto;
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
@@ -88,7 +89,7 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@nombre", skill.Skillname);
                 cmd.Parameters.AddWithValue("@dominio", skill.Dominio);
                 cmd.Parameters.AddWithValue("@foto", skill.Foto);
-
+                cmd.Parameters.AddWithValue("@tipo", skill.Tipo);
                 try
                 {
                     conn.Open();
@@ -115,7 +116,7 @@ namespace portfolio1.Models
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
-            skill.Foto = "C:\\Users\\facu1\\source\\repos\\Portfolio\\Backend\\portfolio1\\uploads\\" + skill.Foto;
+            skill.Foto = HostingEnvironment.MapPath("~/uploads/") + skill.Foto;
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
@@ -126,7 +127,7 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@nombre", skill.Skillname);
                 cmd.Parameters.AddWithValue("@dominio", skill.Dominio);
                 cmd.Parameters.AddWithValue("@foto", skill.Foto);
-
+                cmd.Parameters.AddWithValue("@tipo", skill.Tipo);
 
                 try
                 {

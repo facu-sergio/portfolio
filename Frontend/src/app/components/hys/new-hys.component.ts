@@ -26,17 +26,17 @@ export class NewHysComponent implements OnInit {
     filedata.append('nombre', this.selectedFile.name);
     const filename = filedata.get('nombre').toString();
     const skill =  new Skills(this.nombreS,this.dominioS,this.tipo,filename);
-    this.http.post("https://facundoportafolio.bsite.net/api/File",filedata).subscribe(res=>{
-
-    });
-    /*this.http.post("https://localhost:44311/api/File",filedata).subscribe(res=>{
+     /*this.http.post("https://facundoportafolio.bsite.net/api/File",filedata).subscribe(res=>{
 
     });*/
+   this.http.post("https://localhost:44311/api/File",filedata).subscribe(res=>{
+
+    });
     this.fileService.saveFile(filedata);
     
     this.skillService.saveSkill(skill).subscribe( data => {
       alert("Skill anañadida");
-      this.router.navigate(['home']);
+      this.router.navigate(['/']);
     },err=>{
       alert("Falló");
     })

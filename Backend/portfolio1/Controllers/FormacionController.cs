@@ -5,9 +5,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace portfolio1.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "GET, POST, PUT, DELETE, OPTIONS")]
     public class FormacionController : ApiController
     {
         // GET: api/Formacion
@@ -19,9 +21,10 @@ namespace portfolio1.Controllers
         }
 
         // GET: api/Formacion/5
-        public string Get(int id)
+        public Formacion Get(int id)
         {
-            return "value";
+            gestorFormacion gformacion = new gestorFormacion();
+            return gformacion.getEstudio(id);
         }
 
         // POST: api/Formacion

@@ -7,16 +7,30 @@ namespace portfolio1.Models
 {
     public class Formacion
     {
+        private int _id;
         private string _titulo;
-        private int _año;
+        private int _age;
         private string _institucion;
         private string _desc;
-        public Formacion(string titulo, int año, string institucion, string desc)
+
+        public Formacion()
         {
+
+        }
+
+        public Formacion(int id,string titulo, int age, string institucion, string desc)
+        {
+            _id = id;
             _titulo = titulo;
-            _año = año;
+            _age = age;
             _institucion = institucion;
             _desc = desc;
+        }
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
         }
 
         public string Institucion
@@ -29,10 +43,10 @@ namespace portfolio1.Models
             get { return _desc; }
             set { _desc = value; }
         }
-        public int Año
+        public int Age
         {
-            get { return _año; }
-            set { _año = value; }
+            get { return _age; }
+            set { _age = value; }
         }
 
         public string Titulo

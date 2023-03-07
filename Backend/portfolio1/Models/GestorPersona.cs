@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Hosting;
 
 namespace portfolio1.Models
 {
@@ -24,6 +26,7 @@ namespace portfolio1.Models
 
                 while(dr.Read())
                 {
+                    int id = dr.GetInt32(0);
                     int dni = dr.GetInt32(1);
                     string nombre = dr.GetString(2);
                     string apellido = dr.GetString(3);
@@ -36,7 +39,9 @@ namespace portfolio1.Models
                     string descripcion = dr.GetString(10);
                     string oficio = dr.GetString(11);
                     string foto = dr.GetString(12);
-                    Persona persona = new Persona(dni,nombre,apellido,edad,provincia,localidad,calle,numero,telefono,descripcion,oficio,foto);
+                    byte[] bytes = File.ReadAllBytes(foto);
+                    string imagen = Convert.ToBase64String(bytes);
+                    Persona persona = new Persona(id,dni,nombre,apellido,edad,provincia,localidad,calle,numero,telefono,descripcion,oficio,imagen,foto);
                     lista.Add(persona);
                 }
                 dr.Close();
@@ -44,6 +49,7 @@ namespace portfolio1.Models
             }
             return lista;
         }
+
         
         public bool addPersona(Persona persona)
         {
@@ -95,6 +101,7 @@ namespace portfolio1.Models
         {
             bool res = false;
             string strConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            persona.Foto = HostingEnvironment.MapPath("~/uploads/") + persona.Foto;
             using (SqlConnection conn = new SqlConnection(strConn))
             {
                 SqlCommand cmd = conn.CreateCommand();
@@ -112,7 +119,7 @@ namespace portfolio1.Models
                 cmd.Parameters.AddWithValue("@numero", persona.Numero);
                 cmd.Parameters.AddWithValue("@telefono", persona.Telefono);
                 cmd.Parameters.AddWithValue("@descripcion", persona.Descripcion);
-                cmd.Parameters.AddWithValue("@descripcion", persona.Oficio);
+                cmd.Parameters.AddWithValue("@oficio", persona.Oficio);
                 cmd.Parameters.AddWithValue("@foto", persona.Foto);
 
                 try

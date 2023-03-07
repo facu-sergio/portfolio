@@ -7,6 +7,6 @@
         <p class=" text-ligth invisible-derecha" id="acercaDe">{{persona[0].Descripcion}}</p>
     </div>
     <div class="col-11 col-xl-1 col-lg-1 col-md-1" *ngIf="isLogged">
-        <a class="btn btn-success" href="editarInfoPersonal/{{persona[0].Id}}" >Editar</a>
+        <button class="btn btn-success" id="editar"  routerLink="editarInfoPersonal/{{persona[0].Id}}">Editar</button>
     </div>
 </div>
