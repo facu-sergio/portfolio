@@ -46,7 +46,7 @@ export class EducacionComponent implements OnInit {
       alert('Estudio eliminado correctamente');
       this.getEstudios();
     },err=>{
-      alert('fallo');
+      alert('fallo al eliminar estudio');
     })
   }
   
