@@ -17,12 +17,12 @@ body{
 }
 .invisible-derecha{
     opacity: 0;
-    transform: translateX(10%);
+    transform: translateX(4%);
 }
 .visible{
     opacity: 1;
-    transition: .6s ease-in-out all;
-    transform: scale(1) translateX(0px);
+    transition: .4s ease-in-out all;
+    transform: scale(1) translateX(0%);
 }
 
 p{

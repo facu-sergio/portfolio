@@ -2,6 +2,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { subscribeOn } from 'rxjs';
 import { Skills } from 'src/app/models/skills';
+import { AnimationService } from 'src/app/services/animation.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { SkillsService } from 'src/app/services/skills.service';
 
@@ -13,7 +14,7 @@ import { SkillsService } from 'src/app/services/skills.service';
 export class HysComponent implements OnInit {
   skills: Skills[] = [];
   isLogged:boolean = false;
-  constructor(private skillService:SkillsService, private authService:AuthService,private el:ElementRef ) { }
+  constructor(private skillService:SkillsService, private authService:AuthService,private el:ElementRef,private animation:AnimationService ) { }
   
   ngOnInit(): void {
     this.getSkills();
@@ -25,11 +26,11 @@ export class HysComponent implements OnInit {
     const imgSkill =  this.el.nativeElement.querySelectorAll('#imgSkill')
     
     imgSkill.forEach((imagen:any) => {
-      this.observer.observe(imagen);
+      this.animation.observer.observe(imagen);
     });
 
     nombreSkill.forEach((proyecto:any) => {
-      this.observer.observe(proyecto);
+      this.animation.observer.observe(proyecto);
     });
   }
 
@@ -52,20 +53,4 @@ export class HysComponent implements OnInit {
     })
   }
 
-  cargarImagen =  (entradas:any,observer:IntersectionObserver)=>{
-    entradas.forEach((entrada:any) => {
-      if(entrada.isIntersecting){
-        //entrada.target.classList.remove('invisible-izq')
-        entrada.target.classList.add('visible')
-      }else{
-        //entrada.target.classList.add('invisible-izq')
-        entrada.target.classList.remove('visible')
-      }
-    });
-  }
-  observer =  new IntersectionObserver(this.cargarImagen,{
-    root: null,
-    rootMargin: '0px 0px 200px 0px',
-    threshold: 0.9
-  });
 }

@@ -9,15 +9,15 @@
     </div>
 </div>
 <div  class="row mt-3 " *ngFor="let proyecto of proyectos" >
-    <div class="col-12 col-lg-3 col-md-12 invisible-izq" id="datosProyecto">
+    <div class="col-12 col-lg-3 col-md-12 invisible-derecha" id="datosProyecto">
         <p class="text-warning">{{proyecto.Nombre}} </p>
         <p class="text-ligth desc">{{proyecto.Descripcion}}</p>
         <a href="{{proyecto.Web}}" class="btn btn-sm  btn-primary me-2" target="_blank">Web</a>
         <a href="{{proyecto.Link}}" class="btn btn-sm btn-primary" target="_blank">Repositorio</a>
     </div>
     <div class="col-12 col-lg-8 col-md-10 offset-md-1 mt-md-2 offset-lg-0" >
-        <img  class="imgProject rounded  me-1 zoomimg invisible-izq  " id="imagenesProyecto" (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()"  [src]="'data:image/png;base64,'+ proyecto.Imagen"  >
-        <img  class="rounded imgProject  zoomimg  invisible-izq "  id="imagenesProyecto" (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()" [src]="'data:image/png;base64,'+ proyecto.Imagen2"  >
+        <img  class="imgProject rounded  me-1 zoomimg invisible-derecha  " id="imagenesProyecto" (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()"  [src]="'data:image/png;base64,'+ proyecto.Imagen"  >
+        <img  class="rounded imgProject  zoomimg  invisible-derecha "  id="imagenesProyecto" (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()" [src]="'data:image/png;base64,'+ proyecto.Imagen2"  >
     </div>
     
   

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,13 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private ngxService: NgxUiLoaderService) { }
+  constructor(private ngxService: NgxUiLoaderService,private viewportScroller: ViewportScroller) { }
 
   ngOnInit(): void {
    
+  }
+  ngAfterViewInit() {
+    this.viewportScroller.scrollToPosition([0, 0]);
   }
 
 }

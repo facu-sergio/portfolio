@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Proyecto } from 'src/app/models/proyecto';
+import { AnimationService } from 'src/app/services/animation.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 
@@ -12,7 +13,7 @@ export class ProyectosComponent implements OnInit {
   proyectos: Proyecto[]= [];
   isLogged:boolean = false;
 
-  constructor(private renderer:Renderer2,private el:ElementRef, private proyectoService:ProyectoService, private authService:AuthService ) { }
+  constructor(private renderer:Renderer2,private el:ElementRef, private proyectoService:ProyectoService, private authService:AuthService , private animation:AnimationService) { }
 
   ngOnInit(): void {
     this.isLogged =  this.authService.isAuth();
@@ -25,11 +26,11 @@ export class ProyectosComponent implements OnInit {
     const imagenesProyecto =  this.el.nativeElement.querySelectorAll('#imagenesProyecto')
     console.log(divProyecto)
     imagenesProyecto.forEach((imagen:any) => {
-      this.observer.observe(imagen);
+      this.animation.observer.observe(imagen);
     });
 
     divProyecto.forEach((proyecto:any) => {
-      this.observer.observe(proyecto);
+      this.animation.observer.observe(proyecto);
     });
   }
 
@@ -78,21 +79,4 @@ export class ProyectosComponent implements OnInit {
       alert('fallo al eliminar proyecto');
     })
   }
-  
- cargarImagen =  (entradas:any,observer:IntersectionObserver)=>{
-    entradas.forEach((entrada:any) => {
-      if(entrada.isIntersecting){
-        //entrada.target.classList.remove('invisible-izq')
-        entrada.target.classList.add('visible')
-      }else{
-        //entrada.target.classList.add('invisible-izq')
-        entrada.target.classList.remove('visible')
-      }
-    });
-  }
-  observer =  new IntersectionObserver(this.cargarImagen,{
-    root: null,
-    rootMargin: '0px 0px 0px 0px',
-    threshold: 0.9
-  });
 }
