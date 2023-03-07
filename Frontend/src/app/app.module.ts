@@ -77,15 +77,7 @@ import { LoaderInterceptor } from './interceptors/interceptors/http-interceptor.
     HttpClientModule,
     FormsModule,
     CommonModule,
-    NgxUiLoaderModule.forRoot({
-      bgsColor: 'red',
-      bgsPosition: 'bottom-right',
-      bgsSize: 40,
-      bgsType: 'ball-spin-clockwise',
-      fgsType: 'three-bounce',
-      pbDirection: 'ltr',
-      pbThickness: 5,
-    })
+    NgxUiLoaderModule
   ],
   providers: [
     //jwt
