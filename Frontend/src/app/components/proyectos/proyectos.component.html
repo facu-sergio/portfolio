@@ -16,8 +16,8 @@
         <a href="{{proyecto.Link}}" class="btn btn-sm btn-primary" target="_blank">Repositorio</a>
     </div>
     <div class="col-12 col-lg-8 col-md-10 offset-md-1 mt-md-2 offset-lg-0" >
-        <img  class="imgProject rounded mt-2 mt-lg-0  me-lg-2 zoomimg invisible-derecha  " id="imagenesProyecto" (click)="hacerZoom($event)" (mouseout)="restaurarImagenes()"  [src]="'data:image/png;base64,'+ proyecto.Imagen"  >
-        <img  class="imgProject rounded mt-2 mt-lg-0 zoomimg  invisible-derecha "  id="imagenesProyecto" (click)="hacerZoom($event)" (mouseout)="restaurarImagenes()" [src]="'data:image/png;base64,'+ proyecto.Imagen2"  >
+        <img  class="imgProject rounded mt-2 mt-lg-0  me-lg-2 zoomimg invisible-derecha  " id="imagenesProyecto" (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()"  [src]="'data:image/png;base64,'+ proyecto.Imagen"  >
+        <img  class="imgProject rounded mt-2 mt-lg-0 zoomimg  invisible-derecha "  id="imagenesProyecto" (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()" [src]="'data:image/png;base64,'+ proyecto.Imagen2"  >
     </div>
     
   
