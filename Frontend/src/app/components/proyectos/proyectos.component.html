@@ -8,16 +8,16 @@
         <button class="btn btn-success" routerLink="/nuevoProyecto"  *ngIf="isLogged">Nuevo Proyecto</button>
     </div>
 </div>
-<div  class="row mt-5  datosProyecto invisible-derecha" *ngFor="let proyecto of proyectos" >
+<div  class="row mt-5  datosProyecto" *ngFor="let proyecto of proyectos" >
     <div class="col-12 col-lg-3 col-md-12  " >
         <p class="text-warning" >{{proyecto.Nombre}} </p>
         <p class="text-ligth desc">{{proyecto.Descripcion}}</p>
-        <a href="{{proyecto.Web}}" class="btn btn-sm  btn-primary me-2" target="_blank">Web</a>
-        <a href="{{proyecto.Link}}" class="btn btn-sm btn-primary" target="_blank">Repositorio</a>
+        <a href="{{proyecto.Web}}" class="btn btn-sm  btn-primary me-2 datosProyecto"  target="_blank">Web</a>
+        <a href="{{proyecto.Link}}" class="btn btn-sm btn-primary datosProyecto" target="_blank">Repositorio</a>
     </div>
     <div class="col-12 col-lg-8 col-md-10 offset-md-1 mt-md-2 offset-lg-0" >
-        <img  class="imgProject rounded mt-2 mt-lg-0  me-lg-2"  (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()"  [src]="'data:image/png;base64,'+ proyecto.Imagen">
-        <img  class="imgProject rounded mt-2 mt-lg-0"   (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()" [src]="'data:image/png;base64,'+ proyecto.Imagen2">
+        <img  class="imgProject rounded mt-2 mt-lg-0  me-lg-2 zoomimg imagenesProyecto"  (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()"  [src]="'data:image/png;base64,'+ proyecto.Imagen">
+        <img  class="imgProject rounded mt-2 mt-lg-0 zoomimg imagenesProyecto"   (mouseover)="hacerZoom($event)" (mouseout)="restaurarImagenes()" [src]="'data:image/png;base64,'+ proyecto.Imagen2">
     </div>
     
   

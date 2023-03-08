@@ -15,10 +15,9 @@ export class AnimationService {
      entries.forEach(entry => {
        if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          console.log(`Elemento ${entry.target} es ahora visible`);
        }else{
+        entry.target.classList.remove('visible')
         entry.target.classList.add('invisible-derecha');
-        console.log(`Elemento ${entry.target} es ahora NO visible`);
        }
      });
    });

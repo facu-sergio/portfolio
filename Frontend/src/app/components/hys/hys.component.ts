@@ -22,11 +22,7 @@ export class HysComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    setTimeout(() => {
       this.animation.animateFromRight('Skill');
-    }, 4000);
-   
-
   }
 
   getSkills():void {

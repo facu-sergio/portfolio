@@ -21,11 +21,8 @@ export class ProyectosComponent implements OnInit {
     this.getProyectos();
   }
   ngAfterViewInit(){
-    setTimeout(() => {
       this.animation.animateFromRight('datosProyecto')
       this.animation.animateFromRight('imagenesProyecto')
-    }, 5000);
-   
   }
 
   hacerZoom(evento: MouseEvent) {
