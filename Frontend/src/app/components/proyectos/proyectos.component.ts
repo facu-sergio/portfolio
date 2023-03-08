@@ -24,7 +24,7 @@ export class ProyectosComponent implements OnInit {
     setTimeout(() => {
       this.animation.animateFromRight('datosProyecto')
       this.animation.animateFromRight('imagenesProyecto')
-    }, 4000);
+    }, 5000);
    
   }
 
