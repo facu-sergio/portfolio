@@ -19,13 +19,15 @@ export class HysComponent implements OnInit {
   ngOnInit(): void {
     this.getSkills();
     this.isLogged = this.isAuth();
-
   }
 
   ngAfterViewInit(){
-    const nombreSkill =  this.el.nativeElement.querySelectorAll('.nombreSkill')
-    const imgSkill =  this.el.nativeElement.querySelectorAll('.imgSkill')
-    this.animation.animateFromRight('Skill')
+    setTimeout(() => {
+      this.animation.animateFromRight('Skill');
+      
+    }, 4000);
+   
+
   }
 
   getSkills():void {

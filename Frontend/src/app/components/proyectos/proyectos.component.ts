@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component,ViewChildren, ElementRef, OnInit, QueryList, Renderer2, ViewChild } from '@angular/core';
 import { Proyecto } from 'src/app/models/proyecto';
 import { AnimationService } from 'src/app/services/animation.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -10,7 +10,7 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
   styleUrls: ['./proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit {
-  @ViewChild('datosProyecto') datosProyecto: ElementRef;
+  @ViewChildren('datosProyecto') datosProyecto: QueryList<ElementRef>;
   proyectos: Proyecto[]= [];
   isLogged:boolean = false;
 
@@ -21,8 +21,11 @@ export class ProyectosComponent implements OnInit {
     this.getProyectos();
   }
   ngAfterViewInit(){
-    this.animation.animateFromRight('datosProyecto')
-    this.animation.animateFromRight('imagenesProyecto')
+    setTimeout(() => {
+      this.animation.animateFromRight('datosProyecto')
+      this.animation.animateFromRight('imagenesProyecto')
+    }, 4000);
+   
   }
 
   hacerZoom(evento: MouseEvent) {

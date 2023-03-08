@@ -6,12 +6,12 @@
     <div class="texto-encima">
       <h1 class="text-start text-ligth texto-banner">Bienvenido a mi portfolio</h1>
     </div>
-    <div class="texto-encima2">
+    <div class="texto-encima2" *ngIf="persona">
         <h1 class="text-start text-ligth texto-banner">{{persona[0].Nombre}} {{persona[0].Apellido}} </h1>
         <h1 class="text-start text-ligth texto-banner">{{persona[0].Oficio}} </h1>
     </div>
-        <a href="{{redes[0].Link}}" class="facebook" ><img src="../../../assets/faceblue.png" alt="" class="facebook" /></a>
-        <a href="{{redes[1].Link}}" ><img src="../../../assets/dinblue.png" alt="" class="linkedin" /></a>
-        <a href="{{redes[2].Link}}"><img src="../../../assets/icons8-github-400.png" alt="" class="github" /></a>
+        <a  href="{{redes[0].Link}}" class="facebook"  ><img src="../../../assets/faceblue.png" alt="" class="facebook" /></a>
+        <a  href="{{redes[1].Link}}" ><img src="../../../assets/dinblue.png" alt="" class="linkedin" /></a>
+        <a  href="{{redes[2].Link}}" ><img src="../../../assets/icons8-github-400.png" alt="" class="github" /></a>
 </div>
   

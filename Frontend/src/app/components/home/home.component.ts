@@ -9,13 +9,11 @@ import { ViewportScroller } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private ngxService: NgxUiLoaderService,private viewportScroller: ViewportScroller) { }
+  constructor() { }
 
   ngOnInit(): void {
    
   }
-  ngAfterViewInit() {
-    this.viewportScroller.scrollToPosition([0, 0]);
-  }
+
 
 }
