@@ -14,11 +14,12 @@ import { SkillsService } from 'src/app/services/skills.service';
 export class HysComponent implements OnInit {
   skills: Skills[] = [];
   isLogged:boolean = false;
-  constructor(private skillService:SkillsService, private authService:AuthService,private el:ElementRef,private animation:AnimationService ) { }
+  constructor(private animation:AnimationService,private skillService:SkillsService, private authService:AuthService,private el:ElementRef ) { }
   
   ngOnInit(): void {
     this.getSkills();
     this.isLogged = this.isAuth();
+    this.animation.animateFromRight('Skill');
   }
 
   ngAfterViewInit(){

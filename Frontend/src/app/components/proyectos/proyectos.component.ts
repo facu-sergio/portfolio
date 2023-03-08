@@ -14,11 +14,13 @@ export class ProyectosComponent implements OnInit {
   proyectos: Proyecto[]= [];
   isLogged:boolean = false;
 
-  constructor(private renderer:Renderer2,private el:ElementRef, private proyectoService:ProyectoService, private authService:AuthService , private animation:AnimationService) { }
+  constructor( private animation:AnimationService,private el:ElementRef, private proyectoService:ProyectoService, private authService:AuthService ) { }
 
   ngOnInit(): void {
     this.isLogged =  this.authService.isAuth();
     this.getProyectos();
+    this.animation.animateFromRight('datosProyecto')
+    this.animation.animateFromRight('imagenesProyecto')
   }
   ngAfterViewInit(){
       this.animation.animateFromRight('datosProyecto')
