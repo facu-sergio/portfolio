@@ -10,6 +10,7 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
   styleUrls: ['./proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit {
+  @ViewChild('datosProyecto') datosProyecto: ElementRef;
   proyectos: Proyecto[]= [];
   isLogged:boolean = false;
 
@@ -20,15 +21,8 @@ export class ProyectosComponent implements OnInit {
     this.getProyectos();
   }
   ngAfterViewInit(){
-    const divProyecto =  this.el.nativeElement.querySelectorAll('.datosProyecto')
-    const imagenesProyecto =  this.el.nativeElement.querySelectorAll('.imagenesProyecto')
-    imagenesProyecto.forEach((imagen:any) => {
-      this.animation.observer.observe(imagen);
-    });
-
-    divProyecto.forEach((proyecto:any) => {
-      this.animation.observer.observe(proyecto);
-    });
+    this.animation.animateFromRight('datosProyecto')
+    this.animation.animateFromRight('imagenesProyecto')
   }
 
   hacerZoom(evento: MouseEvent) {

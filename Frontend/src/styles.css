@@ -11,17 +11,14 @@ body{
     color : white;
     overflow-x: hidden;
 }
-.invisible-izq{
-    opacity: 0;
-    transform: translateX(-7%);
-}
+
 .invisible-derecha{
     opacity: 0;
-    transform: translateX(4%);
+    transform: translateX(7%);
+    transition: .6s ease-out;
 }
 .visible{
     opacity: 1;
-    transition: .4s ease-in-out all;
     transform: scale(1) translateX(0%);
 }
 

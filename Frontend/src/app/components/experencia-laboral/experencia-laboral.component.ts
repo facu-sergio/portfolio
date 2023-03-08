@@ -23,17 +23,10 @@ export class ExperenciaLaboralComponent implements OnInit {
     }
   }
   ngAfterViewInit(){
-    let iconos =  this.el.nativeElement.querySelectorAll('#icono');
-    let experencias =  this.el.nativeElement.querySelectorAll('#experiencia');
-
-    iconos.forEach((icono:any) => {
-      this.animation.observer.observe(icono);
-    });
-
-    experencias.forEach((experencia:any) => {
-      this.animation.observer.observe(experencia);
-    });
+    this.animation.animateFromRight('icono')
+    this.animation.animateFromRight('experiencia') 
   }
+  
   cargarExperiencias(): void {
     this.experienciaService.lista().subscribe(
       data => { this.experiencia = data;

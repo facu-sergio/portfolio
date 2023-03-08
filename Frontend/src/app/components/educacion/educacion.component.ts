@@ -18,16 +18,9 @@ export class EducacionComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    let iconoEstudio = this.el.nativeElement.querySelectorAll('#iconoEstudio');
-    let estudios = this.el.nativeElement.querySelectorAll('#estudio');
-
-    iconoEstudio.forEach((icono:any) => {
-      this.animation.observer.observe(icono);      
-    });
-
-    estudios.forEach((estudio:any) => {
-      this.animation.observer.observe(estudio);      
-    });
+    this.animation.animateFromRight('conoEstudio')
+    this.animation.animateFromRight('estudio')
+   
   }
 
   getEstudios(){

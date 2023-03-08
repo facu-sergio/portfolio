@@ -1,11 +1,11 @@
 
 <div class="row pt-2" *ngIf="persona.length>0">
-    <div class="col-11 col-xl-2 col-lg-3 col-md-3   col-sm-6 invisible-izq  " id="imagenPersona">
+    <div class="col-11 col-xl-2 col-lg-3 col-md-3   col-sm-6 invisible-izq imagenPersona " >
         <img class="img-fluid   rounded-circle  mx-auto d-block" [src]="'data:image/png;base64,'+ persona[0].Imagen" id="imgPerfil">
     </div>
     <div class="col-11 col-xl9 col-lg-7 col-md-6  mt-xl-4   acerca" >
         <h1 class="text-warning text-center ">Acerca de mí</h1>
-        <p class=" text-ligth invisible-derecha" id="acercaDe">{{persona[0].Descripcion}}</p>
+        <p class=" text-ligth invisible-derecha acercaDe" >{{persona[0].Descripcion}}</p>
     </div>
     <div class="col-11 col-xl-1 col-lg-1 col-md-1" *ngIf="isLogged">
         <button class="btn btn-success" id="editar"  routerLink="editarInfoPersonal/{{persona[0].Id}}">Editar</button>
