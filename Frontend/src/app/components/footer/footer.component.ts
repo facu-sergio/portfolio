@@ -12,10 +12,7 @@ export class FooterComponent implements OnInit {
   constructor(private authService:AuthService, private router:Router) { }
 
   ngOnInit(): void {
-    console.log("---loged?--")
     this.isLogged =  this.authService.isAuth();
-    console.log("---loged?--")
-    console.log(this.isLogged)
   }
   login(){
     this.router.navigate(['/login']);
